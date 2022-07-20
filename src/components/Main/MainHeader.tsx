@@ -9,6 +9,10 @@ const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 1.5rem 0 2rem;
+  h1 {
+    font-family: Pangolin;
+    font-size: 2.5rem;
+  }
 `;
 
 const MainHeader = () => {
