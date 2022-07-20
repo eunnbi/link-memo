@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Label = styled.label`
   display: flex;
@@ -16,6 +16,7 @@ export const Input = styled.input`
   font-size: 1.2rem;
   border-radius: 0;
   outline: none;
+  font-family: NotoSans;
 `;
 
 export const InputWrapper = styled.div`
