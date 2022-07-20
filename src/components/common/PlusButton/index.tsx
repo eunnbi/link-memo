@@ -21,8 +21,8 @@ const CircleButton = styled.button`
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
