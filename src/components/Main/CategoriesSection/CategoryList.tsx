@@ -1,4 +1,4 @@
-import { useFetchCategories } from "./hooks/useFetchCategories";
+import { useFetchCategories } from "../../../hooks/useFetchCategories";
 import CategoryItem from "./CategoryItem";
 import styled from "styled-components";
 import { useState } from "react";
