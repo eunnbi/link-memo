@@ -9,6 +9,7 @@ const Main = styled.main`
   margin-bottom: 0;
   h1 {
     margin: 0 0 2rem;
+    font-family: Pangolin;
   }
 `;
 const RegisterPage = () => {

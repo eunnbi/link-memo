@@ -12,7 +12,7 @@ const Main = styled.main`
 
 const Logo = styled.h1`
   font-size: 4rem;
-  text-align: center;
+  font-family: Pangolin;
   flex-grow: 1;
   display: flex;
   justify-content: center;
