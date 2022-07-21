@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import LinkMemoList from "../../common/LinkMemoList";
+import { useFecthFavorites } from "./useFetchFavorites";
 
 const FavoritesSection = () => {
+  const { data, status } = useFecthFavorites();
   return (
     <section>
       <Heading>
@@ -8,9 +11,11 @@ const FavoritesSection = () => {
           <span>💖</span> Favorites
         </h2>
       </Heading>
-      <>
+      {data?.linkMemos.length === 0 ? (
         <NoFavorites>자주 찾는 메모를 즐겨찾기에 추가해보세요!</NoFavorites>
-      </>
+      ) : (
+        <LinkMemoList linkMemos={data?.linkMemos} />
+      )}
     </section>
   );
 };
