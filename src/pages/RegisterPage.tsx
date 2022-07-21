@@ -1,5 +1,7 @@
 import RegisterForm from "../components/Register/RegisterForm";
 import styled from "styled-components";
+import BackButton from "../components/common/BackButton";
+import { useNavigate } from "react-router-dom";
 
 const Main = styled.main`
   max-width: 450px;
@@ -13,8 +15,10 @@ const Main = styled.main`
   }
 `;
 const RegisterPage = () => {
+  const navigate = useNavigate();
   return (
     <Main>
+      <BackButton onClick={() => navigate("/")} />
       <h1>회원가입</h1>
       <RegisterForm />
     </Main>
