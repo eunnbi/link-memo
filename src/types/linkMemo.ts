@@ -23,6 +23,12 @@ export interface LinkMemoResponse {
 
 export interface LinkMemosGetResponse {
   linkMemos: LinkMemoResponse[];
+  message?: string;
 }
 
 export type LinkMemoRequest = LinkMemoResponse;
+
+export interface LinkMemoLikeRequest {
+  memoId: LinkMemoId["memoId"];
+  value: boolean;
+}
