@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import FormInput from '../common/FormInput';
-import { Button, LinkButton } from '../common/styles/Button.styles';
-import { Form, FormRow, ButtonBox, Text } from './RegisterForm.styles';
-import { useRegister } from './useRegister';
-import { useCheckPasswd } from './useCheckPasswd';
-import { useForm } from '../../hooks/useForm';
+import { useState } from "react";
+import FormInput from "../common/FormInput";
+import { Button } from "../common/styles/Button.styles";
+import { Form, FormRow, Text } from "./RegisterForm.styles";
+import { useRegister } from "./useRegister";
+import { useCheckPasswd } from "./useCheckPasswd";
+import { useForm } from "../../hooks/useForm";
 
 export interface IGuideText {
   where: string;
@@ -14,21 +14,21 @@ export interface IGuideText {
 
 const RegisterForm = () => {
   const [guideText, setGuideText] = useState({
-    where: '',
-    text: '',
+    where: "",
+    text: "",
     isWarning: true,
   });
   const { form, onChange } = useForm({
-    id: '',
-    passwd: '',
-    checkPasswd: '',
+    id: "",
+    passwd: "",
+    checkPasswd: "",
   });
   const { id, passwd, checkPasswd } = form;
   const { onRegister, checkIdDuplicate } = useRegister(
     id,
     passwd,
     checkPasswd,
-    setGuideText,
+    setGuideText
   );
   useCheckPasswd(passwd, checkPasswd, setGuideText);
   return (
@@ -46,7 +46,7 @@ const RegisterForm = () => {
             중복확인
           </Button>
         </div>
-        {guideText.where === 'id' && (
+        {guideText.where === "id" && (
           <Text warning={guideText.isWarning}>{guideText.text}</Text>
         )}
       </FormRow>
@@ -59,7 +59,7 @@ const RegisterForm = () => {
           onChange={onChange}
         />
         <p>8~15자, 영문 및 숫자 반드시 포함</p>
-        {guideText.where === 'passwd' && (
+        {guideText.where === "passwd" && (
           <Text warning={guideText.isWarning}>{guideText.text}</Text>
         )}
       </FormRow>
@@ -71,14 +71,11 @@ const RegisterForm = () => {
           password={true}
           onChange={onChange}
         />
-        {guideText.where === 'checkPasswd' && (
+        {guideText.where === "checkPasswd" && (
           <Text warning={guideText.isWarning}>{guideText.text}</Text>
         )}
       </FormRow>
-      <ButtonBox>
-        <LinkButton to="/">❌ 취소</LinkButton>
-        <Button type="submit">👌 가입하기</Button>
-      </ButtonBox>
+      <Button type="submit">👌 가입하기</Button>
     </Form>
   );
 };
