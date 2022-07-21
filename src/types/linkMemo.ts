@@ -5,5 +5,14 @@ export interface LinkMemoState {
   linkUrl: string;
   content: string;
   category: Category;
-  like?: boolean;
+}
+
+export interface LinkMemoResponse {
+  linkMemoId: number;
+  linkName: LinkMemoState["linkName"];
+  linkUrl: LinkMemoState["linkUrl"];
+  content: LinkMemoState["content"];
+  categoryId: Category["categoryId"];
+  categoryName: Category["categoryName"];
+  like: boolean;
 }
