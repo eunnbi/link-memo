@@ -1,4 +1,5 @@
 import CategoriesSection from "../components/Main/CategoriesSection";
+import FavoritesSection from "../components/Main/FavoritesSection";
 import MainHeader from "../components/Main/MainHeader";
 
 const MainPage = () => {
@@ -6,6 +7,7 @@ const MainPage = () => {
     <main>
       <MainHeader />
       <CategoriesSection />
+      <FavoritesSection />
     </main>
   );
 };
