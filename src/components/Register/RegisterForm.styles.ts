@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Form = styled.form`
   width: 100%;
@@ -6,19 +6,6 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   padding-bottom: 2rem;
-`;
-
-export const ButtonBox = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-  width: 100%;
-  button,
-  a {
-    width: 140px;
-    margin: 0.5rem auto 0;
-    padding: 0.6rem 0;
-  }
 `;
 
 export const FormRow = styled.div`
@@ -44,5 +31,5 @@ export const FormRow = styled.div`
 
 export const Text = styled.p<{ warning: boolean }>`
   padding: 0 0.5rem;
-  color: ${({ warning }) => (warning ? 'red' : 'blue')};
+  color: ${({ warning }) => (warning ? "red" : "blue")};
 `;
