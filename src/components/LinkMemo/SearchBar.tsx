@@ -1,10 +1,21 @@
+import React from "react";
 import { GoSearch } from "react-icons/go";
 import styled from "styled-components";
 
-const SearchBar = () => {
+interface SearchBarProps {
+  searchQuery: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const SearchBar = ({ searchQuery, onChange }: SearchBarProps) => {
   return (
     <Bar>
-      <Input placeholder="검색" />
+      <Input
+        placeholder="검색"
+        onChange={onChange}
+        name="searchQuery"
+        value={searchQuery}
+      />
       <GoSearch />
     </Bar>
   );
