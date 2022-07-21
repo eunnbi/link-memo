@@ -13,10 +13,12 @@ const CategoryList = () => {
     categoryName: "",
   });
 
-  return data?.categories.length === 0 ? (
-    <NoCategories>
+  return status === "loading" ? (
+    <Text>Loading...</Text>
+  ) : data?.categories.length === 0 ? (
+    <Text>
       아래 (+) 버튼을 눌러 링크 메모를 보관할 나만의 카테고리를 만들어 보세요!
-    </NoCategories>
+    </Text>
   ) : (
     <>
       <ul>
@@ -45,7 +47,7 @@ const CategoryList = () => {
 
 export default CategoryList;
 
-const NoCategories = styled.p`
+const Text = styled.p`
   flex-grow: 1;
   display: flex;
   justify-content: center;
