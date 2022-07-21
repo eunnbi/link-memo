@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useAlert } from "../../../hooks/useAlert";
 import Alert from "../Alert";
+import { useDeleteLinkMemo } from "./useDeleteLinkMemo";
 
 interface DeleteAlertProps {
   memoId: number;
@@ -9,24 +10,28 @@ interface DeleteAlertProps {
 
 const DeleteAlert = ({ memoId, setMemoId }: DeleteAlertProps) => {
   const { show, onAlert, onClose } = useAlert();
+  const { mutate, isLoading } = useDeleteLinkMemo(onClose);
 
   const onCancel = () => {
     onClose();
     setMemoId(0);
   };
 
+  const onConfirm = () => mutate({ memoId });
+
   useEffect(() => {
     if (memoId) {
       onAlert();
     }
   }, [memoId]);
+
   return (
     <Alert
       show={show}
-      title="링크 메모 삭제"
+      title={isLoading ? "링크 메모 삭제 중..." : "링크 메모 삭제"}
       message="한번 삭제한 링크 메모는 복구할 수 없습니다."
       onCancel={onCancel}
-      onConfirm={onCancel}
+      onConfirm={onConfirm}
     />
   );
 };
