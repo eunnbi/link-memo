@@ -53,6 +53,10 @@ main h1 {
   text-align: center;
 }
 
+section {
+  margin-bottom: 6rem;
+}
+
 img {
   object-fit: cover;
 }
