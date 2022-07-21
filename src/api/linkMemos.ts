@@ -7,7 +7,7 @@ export const getLinkMemos = async (
 ) => {
   const userId = getUserId();
   const url = `/linkMemos?userId=${userId}&categoryId=${categoryId}${
-    searchQuery !== undefined ? `&searchQuery=${searchQuery}` : ""
+    searchQuery !== "" ? `&searchQuery=${searchQuery}` : ""
   }`;
   const { data } = await axios.get(url);
   return data;
@@ -48,5 +48,19 @@ export const patchLinkMemo = async (
 
 export const deleteLinkMemo = async (memoId: number) => {
   const { data } = await axios.delete(`/linkMemos/${memoId}`);
+  return data;
+};
+
+export const getFavoriteLinkMemos = async () => {
+  const userId = getUserId();
+  const { data } = await axios.get(`/linkMemos/like?userId=${userId}`);
+  return data;
+};
+
+export const postLinkMemoLike = async (value: boolean, memoId: number) => {
+  const { data } = await axios.post("/linkMemos/like", {
+    memoId,
+    value,
+  });
   return data;
 };
