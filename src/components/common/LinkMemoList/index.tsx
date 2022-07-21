@@ -2,32 +2,27 @@ import LinkMemoItem from "../LinkMemoItem";
 import styled from "styled-components";
 import { useState } from "react";
 import DeleteAlert from "./DeleteAlert";
+import { LinkMemoResponse } from "../../../types/linkMemo";
 
 interface LinkMemoListProps {
-  categoryId: number;
-  categoryName: string;
+  linkMemos: LinkMemoResponse[] | undefined;
 }
 
-const LinkMemoList = ({ categoryId, categoryName }: LinkMemoListProps) => {
+const LinkMemoList = ({ linkMemos }: LinkMemoListProps) => {
   const [deleteMemoId, setDeleteMemoId] = useState(0);
 
-  return (
+  return linkMemos?.length === 0 ? (
+    <NoLinkMemos>아래 (+) 버튼을 눌러 링크 메모를 추가해보세요!</NoLinkMemos>
+  ) : (
     <>
       <List>
-        <LinkMemoItem
-          linkMemo={{
-            linkMemoId: 1,
-            linkName: "무한 스크롤 구현하기",
-            linkUrl:
-              "https://blog.prasanna.codes/how-to-implement-infinite-scrolling-in-react",
-            content:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-            categoryId,
-            categoryName,
-            like: false,
-          }}
-          clickRemoveMenu={() => setDeleteMemoId(1)}
-        />
+        {linkMemos?.map((linkMemo) => (
+          <LinkMemoItem
+            key={linkMemo.memoId}
+            linkMemo={linkMemo}
+            clickRemoveMenu={() => setDeleteMemoId(linkMemo.memoId as number)}
+          />
+        ))}
       </List>
       <DeleteAlert memoId={deleteMemoId} setMemoId={setDeleteMemoId} />
     </>
@@ -35,6 +30,13 @@ const LinkMemoList = ({ categoryId, categoryName }: LinkMemoListProps) => {
 };
 
 export default LinkMemoList;
+
+const NoLinkMemos = styled.p`
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const List = styled.ul`
   display: flex;
