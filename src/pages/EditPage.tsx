@@ -1,20 +1,20 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
-import { setLinkMemo } from "../modules/linkMemo";
+import { changeCategory, setLinkMemo } from "../modules/linkMemo";
 import { LinkMemoState } from "../types/linkMemo";
 import styled from "styled-components";
 import NotificationButton from "../components/Edit/NotificationButton";
 import EditForm from "../components/Edit/EditForm";
 
 const EditPage = () => {
-  const { id } = useParams();
+  const { memoId } = useParams();
   const location = useLocation();
   const state = location.state as LinkMemoState;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (state) {
+    if (memoId && state) {
       dispatch(
         setLinkMemo(
           state.linkName,
@@ -24,12 +24,16 @@ const EditPage = () => {
           state.category.categoryName
         )
       );
+    } else if (state) {
+      dispatch(
+        changeCategory(state.category.categoryId, state.category.categoryName)
+      );
     }
   }, []);
   return (
     <Main>
       <NotificationButton />
-      <EditForm id={id ? parseInt(id) : undefined} />
+      <EditForm id={memoId ? parseInt(memoId) : undefined} />
     </Main>
   );
 };
