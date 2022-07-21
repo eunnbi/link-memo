@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import DropdownMenu from "../../common/DropdownMenu";
 import LikeButton from "./LikeButton";
 import ShareButton from "./ShareButton";
@@ -14,21 +14,14 @@ interface LinkMemoItemProps {
 }
 
 const LinkMemoItem = ({ linkMemo, clickRemoveMenu }: LinkMemoItemProps) => {
-  const {
-    linkMemoId,
-    linkName,
-    linkUrl,
-    content,
-    categoryId,
-    categoryName,
-    like,
-  } = linkMemo;
+  const { memoId, linkName, linkUrl, content, categoryId, categoryName, like } =
+    linkMemo;
   const [showMenu, onToggle, onClose] = useToggle(false);
 
   // edit
   const navigate = useNavigate();
   const clickEditMenu = () => {
-    navigate(`/edit/${linkMemoId}`, {
+    navigate(`/edit/${memoId}`, {
       state: {
         linkName,
         linkUrl,
@@ -61,7 +54,7 @@ const LinkMemoItem = ({ linkMemo, clickRemoveMenu }: LinkMemoItemProps) => {
       </Anchor>
       <MemoContent content={content} />
       <BottomBox>
-        <LikeButton initialLike={like} />
+        <LikeButton initialLike={like!} memoId={memoId!} />
         <ShareButton linkUrl={linkUrl} linkName={linkName} />
       </BottomBox>
     </Item>
