@@ -11,8 +11,10 @@ const FavoritesSection = () => {
           <span>💖</span> Favorites
         </h2>
       </Heading>
-      {data?.linkMemos.length === 0 ? (
-        <NoFavorites>자주 찾는 메모를 즐겨찾기에 추가해보세요!</NoFavorites>
+      {status === "loading" ? (
+        <Text>Loading...</Text>
+      ) : data?.linkMemos.length === 0 ? (
+        <Text>자주 찾는 메모를 즐겨찾기에 추가해보세요!</Text>
       ) : (
         <LinkMemoList linkMemos={data?.linkMemos} />
       )}
@@ -29,7 +31,7 @@ const Heading = styled.div`
   }
 `;
 
-const NoFavorites = styled.p`
+const Text = styled.p`
   text-align: center;
   margin-top: 3rem;
   opacity: 0.6;
