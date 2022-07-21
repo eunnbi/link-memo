@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { css } from "styled-components";
 
-const iconLinkStyle = css`
+const iconButtonStyle = css`
   background-color: rgba(255, 255, 225, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 50%;
@@ -16,10 +15,6 @@ const iconLinkStyle = css`
   }
 `;
 
-export const IconLink = styled(Link)`
-  ${iconLinkStyle}
-`;
-
 export const IconButton = styled.button`
-  ${iconLinkStyle}
+  ${iconButtonStyle}
 `;

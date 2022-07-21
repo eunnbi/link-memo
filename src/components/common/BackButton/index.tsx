@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { HiChevronLeft } from "react-icons/hi";
-import { IconButton } from "../styles/IconLink.styles";
+import { IconButton } from "../styles/IconButton.styles";
 
 const BackButton = ({ onClick }: { onClick: () => void }) => {
   return (
