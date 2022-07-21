@@ -11,7 +11,7 @@ interface EditFormProps {
 }
 
 const EditForm = ({ id }: EditFormProps) => {
-  const { onEdit, warningText } = useEdit(id);
+  const { onEdit, warningText, postLoading, patchLoading } = useEdit(id);
   useInitialize();
 
   return (
@@ -23,9 +23,15 @@ const EditForm = ({ id }: EditFormProps) => {
         {warningText !== "" && <Text>{warningText}</Text>}
         <SubmitButton
           type="submit"
-          //disabled={postLoading || patchLoading ? true : false}
+          disabled={postLoading || patchLoading ? true : false}
         >
-          {id ? "수정하기" : "저장하기"}
+          {id
+            ? patchLoading
+              ? "수정하는 중..."
+              : "수정하기"
+            : postLoading
+            ? "저장하는 중..."
+            : "저장하기"}
         </SubmitButton>
       </div>
     </Form>
