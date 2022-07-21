@@ -22,7 +22,9 @@ const CategoryItem = ({
   return (
     <Item show={show}>
       <div
-        onClick={() => navigate(`/memo/${categoryId}`, { state: categoryName })}
+        onClick={() =>
+          navigate(`/memo/${categoryId}`, { state: { categoryName } })
+        }
       >
         <h3>{categoryName}</h3>
       </div>
