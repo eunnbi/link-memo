@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CategorySelect from "../CategorySelect";
+import CategorySelectBox from "../CategorySelectBox";
 import LinkInputs from "../LinkInputs";
 import MemoInput from "../MemoInput";
 import { Button } from "../../common/styles/Button.styles";
@@ -17,7 +17,7 @@ const EditForm = ({ id }: EditFormProps) => {
   return (
     <Form onSubmit={onEdit}>
       <LinkInputs />
-      <CategorySelect />
+      <CategorySelectBox />
       <MemoInput />
       <div>
         {warningText !== "" && <Text>{warningText}</Text>}
