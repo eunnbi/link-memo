@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import FormInput from "../common/FormInput";
 import { Button, LinkButton } from "../common/styles/Button.styles";
 import CheckBox from "../common/CheckBox";
@@ -18,7 +18,8 @@ const LoginForm = () => {
   const [saveId, handleSaveId] = useSaveId(id, setForm);
   const { mutate, isLoading } = usePostLogin(setWarningText);
 
-  const onLogin = () => {
+  const onLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (id === "") {
       setWarningText("아이디를 입력해주세요.");
       return;
