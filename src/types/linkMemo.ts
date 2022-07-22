@@ -32,3 +32,5 @@ export interface LinkMemoLikeRequest {
   memoId: LinkMemoId["memoId"];
   value: boolean;
 }
+
+export type LinkMemoShare = Pick<LinkMemoState, "linkName" | "linkUrl">;
