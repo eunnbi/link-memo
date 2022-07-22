@@ -3,9 +3,9 @@ import { postCategory } from "../../../../api/categories";
 import { categoriesKey } from "../../../../constants/queryKey";
 import { CategoryId, CategoryName } from "../../../../types/category";
 
-export const useAddCategory = (onCancel: () => void) => {
+export const usePostCategory = (onCancel: () => void) => {
   const queryClient = useQueryClient();
-  const { mutate, status } = useMutation<CategoryId, unknown, CategoryName>(
+  return useMutation<CategoryId, unknown, CategoryName>(
     ({ categoryName }) => postCategory(categoryName),
     {
       onSuccess: () => {
@@ -14,10 +14,4 @@ export const useAddCategory = (onCancel: () => void) => {
       },
     }
   );
-
-  const addCategory = (categoryName: string) => {
-    mutate({ categoryName });
-  };
-
-  return { addCategory, status };
 };
