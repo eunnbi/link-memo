@@ -2,7 +2,7 @@ import LinkMemoItem from "../LinkMemoItem";
 import styled from "styled-components";
 import { useState } from "react";
 import DeleteAlert from "./DeleteAlert";
-import { LinkMemoResponse } from "../../../types/linkMemo";
+import { LinkMemoId, LinkMemoResponse } from "../../../types/linkMemo";
 
 interface LinkMemoListProps {
   linkMemos: LinkMemoResponse[] | undefined;
@@ -10,7 +10,9 @@ interface LinkMemoListProps {
 }
 
 const LinkMemoList = ({ linkMemos, noLinkMemos }: LinkMemoListProps) => {
-  const [deleteMemoId, setDeleteMemoId] = useState(0);
+  const [deleteLinkMemo, setDeleteLinkMemo] = useState<LinkMemoId>({
+    memoId: 0,
+  });
 
   return linkMemos?.length === 0 ? (
     noLinkMemos ? (
@@ -25,11 +27,15 @@ const LinkMemoList = ({ linkMemos, noLinkMemos }: LinkMemoListProps) => {
           <LinkMemoItem
             key={linkMemo.memoId}
             linkMemo={linkMemo}
-            clickRemoveMenu={() => setDeleteMemoId(linkMemo.memoId as number)}
+            clickRemoveMenu={() =>
+              setDeleteLinkMemo({
+                memoId: linkMemo.memoId!,
+              })
+            }
           />
         ))}
       </List>
-      <DeleteAlert memoId={deleteMemoId} setMemoId={setDeleteMemoId} />
+      <DeleteAlert linkMemo={deleteLinkMemo} setLinkMemo={setDeleteLinkMemo} />
     </>
   );
 };
