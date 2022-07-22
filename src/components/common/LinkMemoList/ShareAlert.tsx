@@ -4,21 +4,41 @@ import {
   IconBox,
   Circle,
   Clipboard,
-} from "./styles/ShareAlert.styles";
+} from "../LinkMemoItem/styles/ShareAlert.styles";
 import { MdClose } from "react-icons/md";
 import { FiMail } from "react-icons/fi";
 import facebookIcon from "../../../assets/images/facebook-icon.png";
 import twitterIcon from "../../../assets/images/twitter-icon.png";
 import kakaoIcon from "../../../assets/images/kakao-icon.png";
 import { getFavicon } from "../../../utils/linkMemo";
+import { useAlert } from "../../../hooks/useAlert";
+import { LinkMemoShare } from "../../../types/linkMemo";
+import { useEffect } from "react";
 
 interface AlertProps {
-  show: boolean;
-  onClose: () => void;
-  linkUrl: string;
-  linkName: string;
+  linkMemo: LinkMemoShare;
+  setLinkMemo: React.Dispatch<LinkMemoShare>;
 }
-const ShareAlert = ({ show, onClose, linkUrl, linkName }: AlertProps) => {
+const ShareAlert = ({ linkMemo, setLinkMemo }: AlertProps) => {
+  const { linkUrl, linkName } = linkMemo;
+  const { show, onAlert, onClose } = useAlert();
+
+  // alert
+  useEffect(() => {
+    const { linkUrl, linkName } = linkMemo;
+    if (linkUrl === "" || linkName === "") return;
+    onAlert();
+  }, [linkMemo]);
+
+  // close
+  const closeAlert = () => {
+    onClose();
+    setLinkMemo({
+      linkName: "",
+      linkUrl: "",
+    });
+  };
+
   // 클립보드 복사
   const handleClipboard = () => {
     if (navigator.clipboard !== undefined) {
@@ -71,7 +91,7 @@ const ShareAlert = ({ show, onClose, linkUrl, linkName }: AlertProps) => {
       <AlertBox>
         <AlertContent>
           <h2>링크 공유하기</h2>
-          <CloseButton onClick={onClose}>
+          <CloseButton onClick={closeAlert}>
             <MdClose />
           </CloseButton>
           <IconBox>
