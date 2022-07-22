@@ -1,19 +1,34 @@
+import { useState } from "react";
 import FormInput from "../common/FormInput";
 import { Button, LinkButton } from "../common/styles/Button.styles";
 import CheckBox from "../common/CheckBox";
 import { Form, ButtonBox, Text } from "./LoginForm.styles";
-import { useLogin } from "./useLogin";
+import { usePostLogin } from "./usePostLogin";
 import { useForm } from "../../hooks/useForm";
 import { useSaveId } from "./useSaveId";
+import { AuthState } from "../../types/auth";
 
 const LoginForm = () => {
-  const { form, onChange, setForm } = useForm({
+  const { form, onChange, setForm } = useForm<AuthState>({
     id: "",
     password: "",
   });
   const { id, password } = form;
+  const [warningText, setWarningText] = useState("");
   const [saveId, handleSaveId] = useSaveId(id, setForm);
-  const { onLogin, warningText, isLoading } = useLogin(id, password);
+  const { mutate, isLoading } = usePostLogin(setWarningText);
+
+  const onLogin = () => {
+    if (id === "") {
+      setWarningText("아이디를 입력해주세요.");
+      return;
+    } else if (password === "") {
+      setWarningText("비밀번호를 입력해주세요.");
+      return;
+    }
+    mutate({ id, password });
+  };
+
   return (
     <Form onSubmit={onLogin}>
       {warningText && <Text>{warningText}</Text>}
