@@ -1,20 +1,24 @@
 import { useEffect } from "react";
 import { useAlert } from "../../../hooks/useAlert";
+import { LinkMemoId } from "../../../types/linkMemo";
 import Alert from "../Alert";
 import { useDeleteLinkMemo } from "./useDeleteLinkMemo";
 
 interface DeleteAlertProps {
-  memoId: number;
-  setMemoId: React.Dispatch<React.SetStateAction<number>>;
+  linkMemo: LinkMemoId;
+  setLinkMemo: React.Dispatch<LinkMemoId>;
 }
 
-const DeleteAlert = ({ memoId, setMemoId }: DeleteAlertProps) => {
+const DeleteAlert = ({ linkMemo, setLinkMemo }: DeleteAlertProps) => {
+  const { memoId } = linkMemo;
   const { show, onAlert, onClose } = useAlert();
   const { mutate, isLoading } = useDeleteLinkMemo(onClose);
 
   const onCancel = () => {
     onClose();
-    setMemoId(0);
+    setLinkMemo({
+      memoId: 0,
+    });
   };
 
   const onConfirm = () => mutate({ memoId });
