@@ -3,16 +3,11 @@ import { useAlert } from "../../../hooks/useAlert";
 import { useForm } from "../../../hooks/useForm";
 import { Category } from "../../../types/category";
 import Alert from "../../common/Alert";
-import { useEditCategory } from "./hooks/useEditCategory";
+import { usePatchCategory } from "./hooks/usePatchCategory";
 
 interface EditAlertProps {
   category: Category;
-  setCategory: React.Dispatch<
-    React.SetStateAction<{
-      categoryId: number;
-      categoryName: string;
-    }>
-  >;
+  setCategory: React.Dispatch<Category>;
 }
 
 const EditAlert = ({ category, setCategory }: EditAlertProps) => {
@@ -22,6 +17,7 @@ const EditAlert = ({ category, setCategory }: EditAlertProps) => {
     categoryName: "",
   });
   const [warningText, setWarningText] = useState("");
+
   const onCancel = () => {
     onClose();
     initialize();
@@ -31,16 +27,17 @@ const EditAlert = ({ category, setCategory }: EditAlertProps) => {
       categoryName: "",
     });
   };
-  const { editCategory, isLoading } = useEditCategory(onCancel);
 
+  const { mutate, isLoading } = usePatchCategory(onCancel);
   const onConfirm = () => {
     if (form.categoryName === "") {
       setWarningText("카테고리 이름을 입력하세요.");
       return;
     }
-    editCategory(categoryId, form.categoryName);
+    mutate({ categoryId, categoryName: form.categoryName });
   };
 
+  // alert and set initial form
   useEffect(() => {
     if (categoryId === 0 || categoryName === "") return;
     setForm({
