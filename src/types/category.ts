@@ -4,7 +4,7 @@ export interface Category {
   memoCnt?: number;
 }
 
-export interface CategoriesResponse {
+export interface CategoriesGetResponse {
   categories: Category[];
 }
 
