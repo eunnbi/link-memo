@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-export const useForm = (initialValue: any) => {
+export function useForm<T extends object>(initialValue: T) {
   const [form, setForm] = useState(initialValue);
   const onChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>,
+      | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setForm({
@@ -24,4 +24,4 @@ export const useForm = (initialValue: any) => {
     initialize,
     setForm,
   };
-};
+}
