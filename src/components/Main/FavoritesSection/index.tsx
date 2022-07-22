@@ -13,10 +13,11 @@ const FavoritesSection = () => {
       </Heading>
       {status === "loading" ? (
         <Text>Loading...</Text>
-      ) : data?.linkMemos.length === 0 ? (
-        <Text>자주 찾는 메모를 즐겨찾기에 추가해보세요!</Text>
       ) : (
-        <LinkMemoList linkMemos={data?.linkMemos} />
+        <LinkMemoList
+          linkMemos={data?.linkMemos}
+          noLinkMemos={<Text>자주 찾는 메모를 즐겨찾기에 추가해보세요!</Text>}
+        />
       )}
     </section>
   );
