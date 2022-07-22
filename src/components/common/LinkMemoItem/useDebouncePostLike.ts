@@ -3,6 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { postLinkMemoLike } from "../../../api/linkMemos";
 import { SuccessResponse } from "../../../types";
 import { LinkMemoLikeRequest } from "../../../types/linkMemo";
+import { linkMemoKeys } from "../../../constants/queryKey";
 
 export const useDebouncePostLike = (
   initialLike: boolean,
@@ -14,7 +15,7 @@ export const useDebouncePostLike = (
     ({ value, memoId }) => postLinkMemoLike(value, memoId),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries();
+        queryClient.invalidateQueries(linkMemoKeys.all);
       },
     }
   );
