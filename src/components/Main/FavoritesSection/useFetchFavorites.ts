@@ -4,7 +4,7 @@ import { linkMemoKeys } from "../../../constants/queryKey";
 import { LinkMemosGetResponse } from "../../../types/linkMemo";
 
 export const useFecthFavorites = () => {
-  const { data, status } = useQuery<LinkMemosGetResponse>(
+  return useQuery<LinkMemosGetResponse>(
     linkMemoKeys.like,
     () => getFavoriteLinkMemos(),
     {
@@ -13,5 +13,4 @@ export const useFecthFavorites = () => {
       cacheTime: Infinity,
     }
   );
-  return { data, status };
 };
