@@ -7,4 +7,5 @@ export interface AuthResponse extends SuccessResponse {
 export interface AuthState {
   id: string;
   password: string;
+  checkPasswd?: string;
 }
