@@ -4,12 +4,8 @@ import { linkMemoKeys } from "../constants/queryKey";
 import { LinkMemosGetResponse } from "../types/linkMemo";
 
 export const useFetchLinkMemos = (categoryId: number, searchQuery: string) => {
-  let queryKey = linkMemoKeys.byCategory(categoryId);
-  if (searchQuery !== "") {
-    queryKey = linkMemoKeys.bySearchQuery(categoryId, searchQuery);
-  }
-  const { data, status } = useQuery<LinkMemosGetResponse>(
-    queryKey,
+  return useQuery<LinkMemosGetResponse>(
+    linkMemoKeys.filter(categoryId, searchQuery),
     () => getLinkMemos(categoryId, searchQuery),
     {
       refetchOnWindowFocus: false,
@@ -17,5 +13,4 @@ export const useFetchLinkMemos = (categoryId: number, searchQuery: string) => {
       cacheTime: Infinity,
     }
   );
-  return { data, status };
 };

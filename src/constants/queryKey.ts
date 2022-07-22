@@ -1,8 +1,7 @@
 export const categoriesKey = ["categories"];
 
 export const linkMemoKeys = {
-  byCategory: (categoryId: number) => ["linkMemos", categoryId],
-  bySearchQuery: (categoryId: number, searchQuery: string) => [
+  filter: (categoryId: number, searchQuery: string) => [
     "linkMemos",
     categoryId,
     searchQuery,
