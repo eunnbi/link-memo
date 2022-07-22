@@ -6,13 +6,18 @@ import { LinkMemoResponse } from "../../../types/linkMemo";
 
 interface LinkMemoListProps {
   linkMemos: LinkMemoResponse[] | undefined;
+  noLinkMemos?: JSX.Element;
 }
 
-const LinkMemoList = ({ linkMemos }: LinkMemoListProps) => {
+const LinkMemoList = ({ linkMemos, noLinkMemos }: LinkMemoListProps) => {
   const [deleteMemoId, setDeleteMemoId] = useState(0);
 
   return linkMemos?.length === 0 ? (
-    <NoLinkMemos>아래 (+) 버튼을 눌러 링크 메모를 추가해보세요!</NoLinkMemos>
+    noLinkMemos ? (
+      noLinkMemos
+    ) : (
+      <NoLinkMemos>아래 (+) 버튼을 눌러 링크 메모를 추가해보세요!</NoLinkMemos>
+    )
   ) : (
     <>
       <List>
