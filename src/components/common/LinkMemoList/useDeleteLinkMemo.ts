@@ -5,7 +5,7 @@ import { LinkMemoId } from "../../../types/linkMemo";
 
 export const useDeleteLinkMemo = (onClose: () => void) => {
   const queryClient = useQueryClient();
-  const deleteMutation = useMutation<SuccessResponse, unknown, LinkMemoId>(
+  return useMutation<SuccessResponse, unknown, LinkMemoId>(
     ({ memoId }) => deleteLinkMemo(memoId),
     {
       onSuccess: () => {
@@ -14,5 +14,4 @@ export const useDeleteLinkMemo = (onClose: () => void) => {
       },
     }
   );
-  return deleteMutation;
 };
