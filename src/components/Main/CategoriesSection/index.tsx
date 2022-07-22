@@ -1,8 +1,11 @@
-import CategoryAddButton from "./CategoryAddButton";
 import styled from "styled-components";
 import CategoryList from "./CategoryList";
+import AddAlert from "./AddAlert";
+import { useAlert } from "../../../hooks/useAlert";
+import PlusButton from "../../common/PlusButton";
 
 const CategoriesSection = () => {
+  const { show, onAlert, onClose } = useAlert();
   return (
     <>
       <Section>
@@ -13,7 +16,8 @@ const CategoriesSection = () => {
         </Heading>
         <CategoryList />
       </Section>
-      <CategoryAddButton />
+      <PlusButton onClick={onAlert} />
+      <AddAlert show={show} onClose={onClose} />
     </>
   );
 };
