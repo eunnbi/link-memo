@@ -1,8 +1,13 @@
-import LinkMemoItem from "../LinkMemoItem";
 import styled from "styled-components";
 import { useState } from "react";
 import DeleteAlert from "./DeleteAlert";
-import { LinkMemoId, LinkMemoResponse } from "../../../types/linkMemo";
+import ShareAlert from "./ShareAlert";
+import LinkMemoItem from "../LinkMemoItem";
+import {
+  LinkMemoId,
+  LinkMemoResponse,
+  LinkMemoShare,
+} from "../../../types/linkMemo";
 
 interface LinkMemoListProps {
   linkMemos: LinkMemoResponse[] | undefined;
@@ -12,6 +17,10 @@ interface LinkMemoListProps {
 const LinkMemoList = ({ linkMemos, noLinkMemos }: LinkMemoListProps) => {
   const [deleteLinkMemo, setDeleteLinkMemo] = useState<LinkMemoId>({
     memoId: 0,
+  });
+  const [shareLinkMemo, setShareLinkMemo] = useState<LinkMemoShare>({
+    linkName: "",
+    linkUrl: "",
   });
 
   return linkMemos?.length === 0 ? (
@@ -32,10 +41,17 @@ const LinkMemoList = ({ linkMemos, noLinkMemos }: LinkMemoListProps) => {
                 memoId: linkMemo.memoId!,
               })
             }
+            clickShareButton={() =>
+              setShareLinkMemo({
+                linkName: linkMemo.linkName,
+                linkUrl: linkMemo.linkUrl,
+              })
+            }
           />
         ))}
       </List>
       <DeleteAlert linkMemo={deleteLinkMemo} setLinkMemo={setDeleteLinkMemo} />
+      <ShareAlert linkMemo={shareLinkMemo} setLinkMemo={setShareLinkMemo} />
     </>
   );
 };
