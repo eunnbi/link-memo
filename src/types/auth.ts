@@ -4,7 +4,7 @@ export interface AuthResponse extends SuccessResponse {
   userId?: number;
 }
 
-export interface AuthRequestVariables {
+export interface AuthState {
   id: string;
   password: string;
 }
