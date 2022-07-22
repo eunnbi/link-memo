@@ -4,13 +4,14 @@ import styled from "styled-components";
 import { useState } from "react";
 import DeleteAlert from "./DeleteAlert";
 import EditAlert from "./EditAlert";
+import { Category, CategoryId } from "../../../types/category";
 
 const CategoryList = () => {
   const { data, status } = useFetchCategories();
-  const [deleteCategory, setDeleteCategory] = useState({
+  const [deleteCategory, setDeleteCategory] = useState<CategoryId>({
     categoryId: 0,
   });
-  const [editCategory, setEditCategory] = useState({
+  const [editCategory, setEditCategory] = useState<Category>({
     categoryId: 0,
     categoryName: "",
   });
