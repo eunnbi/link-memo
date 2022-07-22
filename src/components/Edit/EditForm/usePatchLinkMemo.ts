@@ -3,6 +3,7 @@ import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { patchLinkMemo } from "../../../api/linkMemos";
 import { SuccessResponse } from "../../../types";
 import { LinkMemoRequest } from "../../../types/linkMemo";
+import { linkMemoKeys } from "../../../constants/queryKey";
 
 export const usePatchLinkMemo = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export const usePatchLinkMemo = () => {
       patchLinkMemo(linkName, linkUrl, content, categoryId, memoId!),
     {
       onSuccess: (data, { categoryId, categoryName }) => {
-        queryClient.invalidateQueries();
+        queryClient.invalidateQueries(linkMemoKeys.all);
         navigate(`/memo/${categoryId}`, { state: { categoryName } });
       },
     }
