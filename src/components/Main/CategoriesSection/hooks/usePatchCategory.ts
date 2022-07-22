@@ -4,9 +4,9 @@ import { categoriesKey } from "../../../../constants/queryKey";
 import { SuccessResponse } from "../../../../types";
 import { Category } from "../../../../types/category";
 
-export const useEditCategory = (onCancel: () => void) => {
+export const usePatchCategory = (onCancel: () => void) => {
   const queryClient = useQueryClient();
-  const { mutate, isLoading } = useMutation<SuccessResponse, unknown, Category>(
+  return useMutation<SuccessResponse, unknown, Category>(
     ({ categoryId, categoryName }) => patchCategory(categoryName, categoryId),
     {
       onSuccess: () => {
@@ -15,10 +15,4 @@ export const useEditCategory = (onCancel: () => void) => {
       },
     }
   );
-
-  const editCategory = (categoryId: number, categoryName: string) => {
-    mutate({ categoryId, categoryName });
-  };
-
-  return { editCategory, isLoading };
 };
