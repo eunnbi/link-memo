@@ -1,19 +1,24 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DropdownMenu from "../../common/DropdownMenu";
 import LikeButton from "./LikeButton";
-import ShareButton from "./ShareButton";
 import MemoContent from "./MemoContent";
 import { Item, Heading, Anchor, BottomBox } from "./styles/LinkMemoItem.styles";
 import { LinkMemoResponse } from "../../../types/linkMemo";
 import { getFavicon } from "../../../utils/linkMemo";
 import { useToggle } from "../../../hooks/useToggle";
+import { IoMdShare } from "react-icons/io";
 
 interface LinkMemoItemProps {
   linkMemo: LinkMemoResponse;
   clickRemoveMenu: () => void;
+  clickShareButton: () => void;
 }
 
-const LinkMemoItem = ({ linkMemo, clickRemoveMenu }: LinkMemoItemProps) => {
+const LinkMemoItem = ({
+  linkMemo,
+  clickRemoveMenu,
+  clickShareButton,
+}: LinkMemoItemProps) => {
   const { memoId, linkName, linkUrl, content, categoryId, categoryName, like } =
     linkMemo;
   const [showMenu, onToggle, onClose] = useToggle(false);
@@ -55,7 +60,7 @@ const LinkMemoItem = ({ linkMemo, clickRemoveMenu }: LinkMemoItemProps) => {
       <MemoContent content={content} />
       <BottomBox>
         <LikeButton initialLike={like!} memoId={memoId!} />
-        <ShareButton linkUrl={linkUrl} linkName={linkName} />
+        <IoMdShare onClick={clickShareButton} />
       </BottomBox>
     </Item>
   );
