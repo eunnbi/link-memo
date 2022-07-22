@@ -4,21 +4,21 @@ import { postLinkMemoLike } from "../../../api/linkMemos";
 import { SuccessResponse } from "../../../types";
 import { LinkMemoLikeRequest } from "../../../types/linkMemo";
 
-export const usePostLike = (
+export const useDebouncePostLike = (
   initialLike: boolean,
   like: boolean,
   memoId: number
 ) => {
   const queryClient = useQueryClient();
-  const likeMutation = useMutation<
-    SuccessResponse,
-    unknown,
-    LinkMemoLikeRequest
-  >(({ value, memoId }) => postLinkMemoLike(value, memoId), {
-    onSuccess: () => {
-      queryClient.invalidateQueries();
-    },
-  });
+  const { mutate } = useMutation<SuccessResponse, unknown, LinkMemoLikeRequest>(
+    ({ value, memoId }) => postLinkMemoLike(value, memoId),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries();
+      },
+    }
+  );
+
   const timer = useRef<NodeJS.Timeout | null>(null);
   useEffect(() => {
     if (timer.current) {
@@ -26,7 +26,7 @@ export const usePostLike = (
     }
     timer.current = setTimeout(() => {
       if (initialLike !== like) {
-        likeMutation.mutate({ value: like, memoId });
+        mutate({ value: like, memoId });
       }
     }, 1500);
   }, [like]);
