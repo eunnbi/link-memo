@@ -7,7 +7,9 @@ import EditAlert from "./EditAlert";
 
 const CategoryList = () => {
   const { data, status } = useFetchCategories();
-  const [deleteCategoryId, setDeleteCategoryId] = useState(0);
+  const [deleteCategory, setDeleteCategory] = useState({
+    categoryId: 0,
+  });
   const [editCategory, setEditCategory] = useState({
     categoryId: 0,
     categoryName: "",
@@ -32,14 +34,13 @@ const CategoryList = () => {
                 categoryName: category.categoryName,
               })
             }
-            clickRemoveMenu={() => setDeleteCategoryId(category.categoryId)}
+            clickRemoveMenu={() =>
+              setDeleteCategory({ categoryId: category.categoryId })
+            }
           />
         ))}
       </ul>
-      <DeleteAlert
-        categoryId={deleteCategoryId}
-        setCategoryId={setDeleteCategoryId}
-      />
+      <DeleteAlert category={deleteCategory} setCategory={setDeleteCategory} />
       <EditAlert category={editCategory} setCategory={setEditCategory} />
     </>
   );
