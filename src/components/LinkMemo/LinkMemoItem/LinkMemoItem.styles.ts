@@ -7,8 +7,9 @@ export const Item = styled.li`
   width: 100%;
   border-radius: 1rem;
   padding: 1rem 1rem 1rem 1.5rem;
-  box-shadow: 1px 0.2rem 0.3rem rgba(0, 0, 0, 0.25);
-  border: 1px solid lightgray;
+  box-shadow: ${({ theme }) => `1px 0.2rem 0.3rem ${theme.color.shadowColor}`};
+  border: ${({ theme }) => theme.name === "light" && "1px solid lightgray"};
+  background-color: ${({ theme }) => theme.color.bgColor};
 `;
 
 export const Heading = styled.div`
@@ -24,7 +25,7 @@ export const Heading = styled.div`
       margin-top: 0.5rem;
       width: 1.3rem;
       height: 1.3rem;
-      border-radius: 5px;
+      border-radius: 0.1rem;
     }
   }
   h2 {
