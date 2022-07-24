@@ -8,10 +8,10 @@ export function useForm<T extends object>(initialValue: T) {
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setForm({
+    setForm((form) => ({
       ...form,
       [name]: value,
-    });
+    }));
   };
 
   const initialize = () => {
