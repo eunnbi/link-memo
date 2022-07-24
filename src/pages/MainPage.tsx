@@ -1,5 +1,5 @@
-import CategoriesSection from "../components/Main/CategoriesSection";
-import FavoritesSection from "../components/Main/FavoritesSection";
+import CategoriesSection from "../components/Categories/CategoriesSection";
+import FavoritesSection from "../components/LinkMemo/Favorites/FavoritesSection";
 import MainHeader from "../components/Main/MainHeader";
 
 const MainPage = () => {

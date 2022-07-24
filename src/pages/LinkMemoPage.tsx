@@ -1,7 +1,7 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import BackButton from "../components/common/BackButton";
-import LinkMemoList from "../components/common/LinkMemoList";
+import LinkMemoList from "../components/LinkMemo/LinkMemoList";
 import PlusButton from "../components/common/PlusButton";
 import SearchBar from "../components/LinkMemo/SearchBar";
 import { useFetchLinkMemos } from "../hooks/useFetchLinkMemos";
@@ -10,12 +10,13 @@ import { BsLink45Deg } from "react-icons/bs";
 
 const LinkMemoPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { categoryName } = location.state as { categoryName: string };
+
   const { form, onChange } = useForm({
     searchQuery: "",
   });
   const { categoryId } = useParams();
-  const location = useLocation();
-  const { categoryName } = location.state as { categoryName: string };
   const { data, status } = useFetchLinkMemos(
     Number(categoryId),
     form.searchQuery
