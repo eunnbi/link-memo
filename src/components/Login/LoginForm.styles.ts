@@ -20,11 +20,11 @@ export const ButtonBox = styled.div`
 `;
 
 export const Text = styled.p`
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.06);
   text-align: center;
   border-radius: 10px;
   padding: 1rem;
   font-size: 1rem;
-  color: red;
+  color: ${({ theme }) => theme.color.red};
   margin-bottom: 2rem;
 `;
