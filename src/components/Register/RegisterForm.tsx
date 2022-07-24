@@ -27,7 +27,7 @@ const RegisterForm = () => {
     checkPasswd: "",
   });
   const { id, password, checkPasswd } = form;
-  const { mutate } = usePostRegister(); // 회원가입 api 호출
+  const { mutate, isLoading } = usePostRegister(); // 회원가입 api 호출
   const { checkIdDuplicate, duplicateCheck, IsDuplicate } =
     useCheckIdDuplicate(setGuideText); // 아이디 중복 여부 체크 (api 호출)
   const { checkFormValidation } = useCheckFormValidation(setGuideText); // 회원가입 폼 건증
@@ -92,7 +92,9 @@ const RegisterForm = () => {
           <Text warning={guideText.isWarning}>{guideText.text}</Text>
         )}
       </FormRow>
-      <Button type="submit">👌 가입하기</Button>
+      <Button type="submit" disabled={isLoading ? true : false}>
+        👌 가입하기
+      </Button>
     </Form>
   );
 };
