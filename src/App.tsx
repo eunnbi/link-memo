@@ -9,14 +9,16 @@ import LinkMemoPage from "./pages/LinkMemoPage";
 import EditPage from "./pages/EditPage";
 import { lightTheme, darkTheme } from "./styles/theme";
 import { GlobalStyle } from "./styles/GlobalStyle";
+import { getUserId } from "./utils/auth";
 
 const THEME = "theme" as const;
 
 const queryClient = new QueryClient();
 function App() {
+  const userId = getUserId();
   const [isLightTheme, setIsLightTheme] = useState(true);
   const changeTheme = () => {
-    setIsLightTheme(!isLightTheme);
+    setIsLightTheme((isLightTheme) => !isLightTheme);
     window.localStorage.setItem(THEME, JSON.stringify(!isLightTheme));
   };
 
@@ -37,12 +39,13 @@ function App() {
         <GlobalStyle />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
             <Route
-              path="/main"
-              element={<MainPage changeTheme={changeTheme} />}
+              path="/"
+              element={
+                userId ? <MainPage changeTheme={changeTheme} /> : <LoginPage />
+              }
             />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/memo/*" element={<LinkMemoPage />}>
               <Route path=":categoryId" element={<LinkMemoPage />} />
             </Route>
