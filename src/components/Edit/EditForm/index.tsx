@@ -8,16 +8,14 @@ import CategorySelectBox from "../CategorySelectBox";
 import LinkInputs from "../LinkInputs";
 import MemoInput from "../MemoInput";
 import { Button } from "../../common/styles/Button.styles";
-import { LinkMemoState } from "../../../types/linkMemo";
 
 interface EditFormProps {
-  id: number | undefined;
+  id?: number;
 }
 
 const EditForm = ({ id }: EditFormProps) => {
   const [warningText, setWarningText] = useState("");
-  const { linkName, linkUrl, content, category }: LinkMemoState =
-    useInputValue();
+  const { linkName, linkUrl, content, category } = useInputValue();
   const { mutate: postMutate, isLoading: postLoading } = usePostLinkMemo();
   const { mutate: patchMutate, isLoading: patchLoading } = usePatchLinkMemo();
 
