@@ -18,5 +18,5 @@ const ThemeButton = ({ changeTheme }: ThemeButtonProps) => {
 export default ThemeButton;
 
 const Sunny = styled(IoSunny)`
-  color: #f29f21;
+  color: #f29f21 !important;
 `;
