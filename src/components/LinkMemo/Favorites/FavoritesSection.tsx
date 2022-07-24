@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LinkMemoList from "../../common/LinkMemoList";
+import LinkMemoList from "../LinkMemoList";
 import { useFecthFavorites } from "./useFetchFavorites";
 
 const FavoritesSection = () => {
