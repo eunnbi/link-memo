@@ -1,10 +1,9 @@
-import { AlertWrapper, AlertBox, AlertContent } from "../Alert/Alert.styles";
 import {
-  CloseButton,
-  IconBox,
-  Circle,
-  Clipboard,
-} from "../LinkMemoItem/styles/ShareAlert.styles";
+  AlertWrapper,
+  AlertBox,
+  AlertContent,
+} from "../../common/Alert/Alert.styles";
+import { CloseButton, IconBox, Circle, Clipboard } from "./ShareAlert.styles";
 import { MdClose } from "react-icons/md";
 import { FiMail } from "react-icons/fi";
 import facebookIcon from "../../../assets/images/facebook-icon.png";

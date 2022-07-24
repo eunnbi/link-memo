@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useAlert } from "../../../hooks/useAlert";
 import { LinkMemoId } from "../../../types/linkMemo";
-import Alert from "../Alert";
+import Alert from "../../common/Alert";
 import { useDeleteLinkMemo } from "./useDeleteLinkMemo";
 
 interface DeleteAlertProps {
