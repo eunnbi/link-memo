@@ -7,7 +7,8 @@ export const AlertWrapper = styled.div<{ show: boolean }>`
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: ${({ theme }) =>
+    theme.name === "light" ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0.6)"};
   justify-content: center;
   align-items: center;
   z-index: 5;
@@ -24,6 +25,8 @@ export const AlertBox = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.3);
+  background: ${({ theme }) => theme.color.bgColor};
+  border: ${({ theme }) => theme.name === "dark" && `1px solid lightgray`};
   h2 {
     text-align: center;
   }
@@ -63,7 +66,8 @@ export const ButtonBox = styled.div`
 `;
 
 export const Button = styled.button<{ IsCancel: boolean }>`
-  color: ${({ IsCancel }) => (IsCancel ? "red" : "blue")};
+  color: ${({ IsCancel, theme }) =>
+    IsCancel ? theme.color.red : theme.color.blue};
   background-color: transparent;
   padding: 0.7rem 0;
   font-size: 1rem;
