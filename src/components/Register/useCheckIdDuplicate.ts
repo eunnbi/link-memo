@@ -36,8 +36,8 @@ export const useCheckIdDuplicate = (
     duplicateCheck.current = true;
   };
   return {
-    duplicateCheck,
-    IsDuplicate,
+    duplicateCheck: duplicateCheck.current,
+    IsDuplicate: IsDuplicate.current,
     checkIdDuplicate,
   };
 };
