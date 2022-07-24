@@ -35,10 +35,18 @@ const Bar = styled.div`
 `;
 
 const Input = styled.input`
-  border: 1px solid lightgray;
   border-radius: 1rem;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   flex-grow: 1;
   max-width: 400px;
+  background-color: ${({ theme }) => theme.name === "dark" && "#464646"};
+  border: ${({ theme }) => theme.name === "light" && "1px solid lightgray"};
+  color: ${({ theme }) => theme.color.textColor};
+  &::-moz-placeholder {
+    color: ${({ theme }) => theme.name === "dark" && "lightgray"};
+  }
+  &::placeholder {
+    color: ${({ theme }) => theme.name === "dark" && "lightgray"};
+  }
 `;
