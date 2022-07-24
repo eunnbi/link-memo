@@ -9,6 +9,8 @@ import LinkMemoPage from "./pages/LinkMemoPage";
 import EditPage from "./pages/EditPage";
 import { lightTheme, darkTheme } from "./styles/theme";
 import { GlobalStyle } from "./styles/GlobalStyle";
+import ModalsProvider from "./contexts/ModalsContext";
+import Modals from "./components/common/Modals";
 
 const THEME = "theme" as const;
 
@@ -35,22 +37,25 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
         <GlobalStyle />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route
-              path="/main"
-              element={<MainPage changeTheme={changeTheme} />}
-            />
-            <Route path="/memo/*" element={<LinkMemoPage />}>
-              <Route path=":categoryId" element={<LinkMemoPage />} />
-            </Route>
-            <Route path="/edit/*" element={<EditPage />}>
-              <Route path=":memoId" element={<EditPage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <ModalsProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route
+                path="/main"
+                element={<MainPage changeTheme={changeTheme} />}
+              />
+              <Route path="/memo/*" element={<LinkMemoPage />}>
+                <Route path=":categoryId" element={<LinkMemoPage />} />
+              </Route>
+              <Route path="/edit/*" element={<EditPage />}>
+                <Route path=":memoId" element={<EditPage />} />
+              </Route>
+            </Routes>
+            <Modals />
+          </BrowserRouter>
+        </ModalsProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
