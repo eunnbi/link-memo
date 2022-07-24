@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useAlert } from "../../../hooks/useAlert";
-import { useForm } from "../../../hooks/useForm";
-import { Category } from "../../../types/category";
-import Alert from "../../common/Alert";
+import { useAlert } from "../../hooks/useAlert";
+import { useForm } from "../../hooks/useForm";
+import { Category } from "../../types/category";
+import Alert from "../common/Alert";
 import { usePatchCategory } from "./hooks/usePatchCategory";
 
 interface EditAlertProps {

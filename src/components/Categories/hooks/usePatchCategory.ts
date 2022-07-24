@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { patchCategory } from "../../../../api/categories";
-import { categoriesKey } from "../../../../constants/queryKey";
-import { SuccessResponse } from "../../../../types";
-import { Category } from "../../../../types/category";
+import { patchCategory } from "../../../api/categories";
+import { categoriesKey } from "../../../constants/queryKey";
+import { SuccessResponse } from "../../../types";
+import { Category } from "../../../types/category";
 
 export const usePatchCategory = (onCancel: () => void) => {
   const queryClient = useQueryClient();

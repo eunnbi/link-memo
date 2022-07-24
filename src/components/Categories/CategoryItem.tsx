@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Category } from "../../../types/category";
-import DropdownMenu from "../../common/DropdownMenu";
-import { useToggle } from "../../../hooks/useToggle";
+import { Category } from "../../types/category";
+import DropdownMenu from "../common/DropdownMenu";
+import { useToggle } from "../../hooks/useToggle";
 import { useNavigate } from "react-router-dom";
 import { BsLink45Deg } from "react-icons/bs";
 

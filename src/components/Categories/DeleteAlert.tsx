@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDeleteCategory } from "./hooks/useDeleteCategory";
-import Alert from "../../common/Alert";
-import { useAlert } from "../../../hooks/useAlert";
-import { CategoryId } from "../../../types/category";
+import Alert from "../common/Alert";
+import { useAlert } from "../../hooks/useAlert";
+import { CategoryId } from "../../types/category";
 
 interface DeleteAlertProps {
   category: CategoryId;

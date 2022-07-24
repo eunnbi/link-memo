@@ -1,10 +1,10 @@
-import { useFetchCategories } from "../../../hooks/useFetchCategories";
+import { useFetchCategories } from "../../hooks/useFetchCategories";
 import CategoryItem from "./CategoryItem";
 import styled from "styled-components";
 import { useState } from "react";
 import DeleteAlert from "./DeleteAlert";
 import EditAlert from "./EditAlert";
-import { Category, CategoryId } from "../../../types/category";
+import { Category, CategoryId } from "../../types/category";
 
 const CategoryList = () => {
   const { data, status } = useFetchCategories();

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { usePostCategory } from "./hooks/usePostCategory";
-import Alert from "../../common/Alert";
-import { useForm } from "../../../hooks/useForm";
+import Alert from "../common/Alert";
+import { useForm } from "../../hooks/useForm";
 
 interface AddAlertProps {
   show: boolean;

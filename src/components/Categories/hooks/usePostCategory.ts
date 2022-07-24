@@ -1,7 +1,7 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
-import { postCategory } from "../../../../api/categories";
-import { categoriesKey } from "../../../../constants/queryKey";
-import { CategoryId, CategoryName } from "../../../../types/category";
+import { postCategory } from "../../../api/categories";
+import { categoriesKey } from "../../../constants/queryKey";
+import { CategoryId, CategoryName } from "../../../types/category";
 
 export const usePostCategory = (onCancel: () => void) => {
   const queryClient = useQueryClient();
