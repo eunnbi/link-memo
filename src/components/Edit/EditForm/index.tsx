@@ -1,17 +1,55 @@
+import { useState } from "react";
 import styled from "styled-components";
+import { useInitialize } from "./useInitialize";
+import { usePostLinkMemo } from "./usePostLinkMemo";
+import { usePatchLinkMemo } from "./usePatchLinkMemo";
+import { useInputValue } from "../hooks/useInputValue";
 import CategorySelectBox from "../CategorySelectBox";
 import LinkInputs from "../LinkInputs";
 import MemoInput from "../MemoInput";
 import { Button } from "../../common/styles/Button.styles";
-import { useEdit } from "./useEdit";
-import { useInitialize } from "./useInitialize";
+import { LinkMemoState } from "../../../types/linkMemo";
 
 interface EditFormProps {
   id: number | undefined;
 }
 
 const EditForm = ({ id }: EditFormProps) => {
-  const { onEdit, warningText, postLoading, patchLoading } = useEdit(id);
+  const [warningText, setWarningText] = useState("");
+  const { linkName, linkUrl, content, category }: LinkMemoState =
+    useInputValue();
+  const { mutate: postMutate, isLoading: postLoading } = usePostLinkMemo();
+  const { mutate: patchMutate, isLoading: patchLoading } = usePatchLinkMemo();
+
+  const onEdit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (linkName === "") {
+      setWarningText("링크 이름은 필수 입력 항목입니다.");
+      return;
+    }
+    if (linkUrl === "") {
+      setWarningText("링크 주소는 필수 입력 항목입니다.");
+      return;
+    }
+    if (id) {
+      patchMutate({
+        linkName,
+        linkUrl,
+        content,
+        categoryId: Number(category.categoryId),
+        categoryName: category.categoryName,
+        memoId: id,
+      });
+    } else {
+      postMutate({
+        linkName,
+        linkUrl,
+        content,
+        categoryId: Number(category.categoryId),
+        categoryName: category.categoryName,
+      });
+    }
+  };
   useInitialize();
 
   return (
