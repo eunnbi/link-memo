@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Box = styled.div`
   border-radius: 1.2rem;
-  border: 1px solid #000;
+  border: ${({ theme }) => `1px solid ${theme.color.borderColor}`};
   position: relative;
   div {
     display: flex;
@@ -26,6 +26,7 @@ export const List = styled.ul`
   z-index: 1;
   background-color: #fff;
   overflow-y: scroll;
+  background-color: ${({ theme }) => theme.color.bgColor};
   &.active {
     max-height: 200px;
   }
@@ -41,7 +42,7 @@ export const Item = styled.li<{ selected: boolean }>`
   font-weight: ${({ selected }) => selected && "bold"};
   transition: all 0.2s ease-in-out;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: ${({ theme }) => theme.color.hoverColor};
   }
 `;
 
