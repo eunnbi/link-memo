@@ -1,21 +1,15 @@
 import styled from "styled-components";
 import { Category } from "../../types/category";
-import DropdownMenu from "../common/DropdownMenu";
 import { useToggle } from "../../hooks/useToggle";
 import { useNavigate } from "react-router-dom";
 import { BsLink45Deg } from "react-icons/bs";
+import CategoryMenu from "./CategoryMenu";
 
 interface CategoryItemProps {
   category: Category;
-  clickEditMenu: () => void;
-  clickRemoveMenu: () => void;
 }
 
-const CategoryItem = ({
-  category,
-  clickEditMenu,
-  clickRemoveMenu,
-}: CategoryItemProps) => {
+const CategoryItem = ({ category }: CategoryItemProps) => {
   const { categoryId, categoryName, memoCnt } = category;
   const [show, toggle, onClose] = useToggle(false);
   const navigate = useNavigate();
@@ -32,12 +26,11 @@ const CategoryItem = ({
         <p>
           <BsLink45Deg /> {memoCnt}
         </p>
-        <DropdownMenu
+        <CategoryMenu
           show={show}
           toggle={toggle}
           onClose={onClose}
-          clickEditMenu={clickEditMenu}
-          clickRemoveMenu={clickRemoveMenu}
+          category={category}
         />
       </div>
     </Item>
