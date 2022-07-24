@@ -1,42 +1,28 @@
 import {
-  AlertWrapper,
-  AlertBox,
-  AlertContent,
-} from "../../common/Alert/Alert.styles";
-import { CloseButton, IconBox, Circle, Clipboard } from "./ShareAlert.styles";
+  ModalWrapper,
+  ModalBox,
+  ModalContent,
+} from "../../common/Modals/Modal.styles";
+import {
+  CloseButton,
+  IconBox,
+  Circle,
+  Clipboard,
+} from "./styles/ShareAlert.styles";
 import { MdClose } from "react-icons/md";
 import { FiMail } from "react-icons/fi";
 import facebookIcon from "../../../assets/images/facebook-icon.png";
 import twitterIcon from "../../../assets/images/twitter-icon.png";
 import kakaoIcon from "../../../assets/images/kakao-icon.png";
 import { getFavicon } from "../../../utils/linkMemo";
-import { useAlert } from "../../../hooks/useAlert";
 import { LinkMemoShare } from "../../../types/linkMemo";
-import { useEffect } from "react";
 
-interface AlertProps {
+interface ShareModalProps {
   linkMemo: LinkMemoShare;
-  setLinkMemo: React.Dispatch<LinkMemoShare>;
+  onClose: () => void;
 }
-const ShareAlert = ({ linkMemo, setLinkMemo }: AlertProps) => {
+const ShareModal = ({ linkMemo, onClose }: ShareModalProps) => {
   const { linkUrl, linkName } = linkMemo;
-  const { show, onAlert, onClose } = useAlert();
-
-  // alert
-  useEffect(() => {
-    const { linkUrl, linkName } = linkMemo;
-    if (linkUrl === "" || linkName === "") return;
-    onAlert();
-  }, [linkMemo]);
-
-  // close
-  const closeAlert = () => {
-    onClose();
-    setLinkMemo({
-      linkName: "",
-      linkUrl: "",
-    });
-  };
 
   // 클립보드 복사
   const handleClipboard = () => {
@@ -86,11 +72,11 @@ const ShareAlert = ({ linkMemo, setLinkMemo }: AlertProps) => {
     });
   };
   return (
-    <AlertWrapper show={show}>
-      <AlertBox>
-        <AlertContent>
+    <ModalWrapper>
+      <ModalBox>
+        <ModalContent>
           <h2>링크 공유하기</h2>
-          <CloseButton onClick={closeAlert}>
+          <CloseButton onClick={onClose}>
             <MdClose />
           </CloseButton>
           <IconBox>
@@ -113,10 +99,10 @@ const ShareAlert = ({ linkMemo, setLinkMemo }: AlertProps) => {
             <p>{linkUrl}</p>
             <p onClick={handleClipboard}>복사</p>
           </Clipboard>
-        </AlertContent>
-      </AlertBox>
-    </AlertWrapper>
+        </ModalContent>
+      </ModalBox>
+    </ModalWrapper>
   );
 };
 
-export default ShareAlert;
+export default ShareModal;
