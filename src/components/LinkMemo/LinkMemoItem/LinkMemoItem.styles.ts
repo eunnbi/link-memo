@@ -9,7 +9,7 @@ export const Item = styled.li`
   padding: 1rem 1rem 1rem 1.5rem;
   box-shadow: ${({ theme }) => `1px 0.2rem 0.3rem ${theme.color.shadowColor}`};
   border: ${({ theme }) => theme.name === "light" && "1px solid lightgray"};
-  background-color: ${({ theme }) => theme.name === "dark" && "#353535"};
+  background-color: ${({ theme }) => theme.color.secondBgColor};
 `;
 
 export const Heading = styled.div`
