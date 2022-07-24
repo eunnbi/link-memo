@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import DropdownMenu from "../../common/DropdownMenu";
 import LikeButton from "./LikeButton";
 import MemoContent from "./MemoContent";
-import { Item, Heading, Anchor, BottomBox } from "./styles/LinkMemoItem.styles";
+import { Item, Heading, Anchor, BottomBox } from "./LinkMemoItem.styles";
 import { LinkMemoResponse } from "../../../types/linkMemo";
 import { getFavicon } from "../../../utils/linkMemo";
 import { useToggle } from "../../../hooks/useToggle";
