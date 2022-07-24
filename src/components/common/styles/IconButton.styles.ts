@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 const iconButtonStyle = css`
-  background-color: rgba(255, 255, 225, 0.2);
+  background-color: ${({ theme }) => theme.color.bgColor};
   backdrop-filter: blur(10px);
   border-radius: 50%;
   padding: 0.5rem;
@@ -12,6 +12,7 @@ const iconButtonStyle = css`
   svg {
     font-size: 1.2rem;
     cursor: pointer;
+    color: ${({ theme }) => theme.color.textColor};
   }
 `;
 
