@@ -1,20 +1,18 @@
-import { useEffect, useState } from "react";
-import { useAlert } from "../../hooks/useAlert";
+import { useState } from "react";
 import { useForm } from "../../hooks/useForm";
 import { Category } from "../../types/category";
-import Alert from "../common/Alert";
+import Modal from "../common/Modals/Modal";
 import { usePatchCategory } from "./hooks/usePatchCategory";
 
-interface EditAlertProps {
+interface EditModalProps {
   category: Category;
-  setCategory: React.Dispatch<Category>;
+  onClose: () => void;
 }
 
-const EditAlert = ({ category, setCategory }: EditAlertProps) => {
-  const { categoryId, categoryName } = category;
-  const { show, onAlert, onClose } = useAlert();
-  const { form, onChange, initialize, setForm } = useForm({
-    categoryName: "",
+const EditModal = ({ category, onClose }: EditModalProps) => {
+  const { categoryId } = category;
+  const { form, onChange, initialize } = useForm({
+    categoryName: category.categoryName,
   });
   const [warningText, setWarningText] = useState("");
 
@@ -22,10 +20,6 @@ const EditAlert = ({ category, setCategory }: EditAlertProps) => {
     onClose();
     initialize();
     setWarningText("");
-    setCategory({
-      categoryId: 0,
-      categoryName: "",
-    });
   };
 
   const { mutate, isLoading } = usePatchCategory(onCancel);
@@ -37,18 +31,8 @@ const EditAlert = ({ category, setCategory }: EditAlertProps) => {
     mutate({ categoryId, categoryName: form.categoryName });
   };
 
-  // alert and set initial form
-  useEffect(() => {
-    if (categoryId === 0 || categoryName === "") return;
-    setForm({
-      categoryName,
-    });
-    onAlert();
-  }, [categoryId, categoryName]);
-
   return (
-    <Alert
-      show={show}
+    <Modal
       title={isLoading ? "카테고리 수정 중..." : "카테고리 수정"}
       name="categoryName"
       value={form.categoryName}
@@ -62,4 +46,4 @@ const EditAlert = ({ category, setCategory }: EditAlertProps) => {
   );
 };
 
-export default EditAlert;
+export default EditModal;
