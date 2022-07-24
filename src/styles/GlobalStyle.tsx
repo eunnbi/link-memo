@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     body {
-        background-color: ${({ theme }) => theme.color.bgColor};
+        background-color: ${({ theme }) => theme.color.bodyBgColor};
         color: ${({ theme }) => theme.color.textColor};
         transition: all 0.3s ease-in-out;
     }
