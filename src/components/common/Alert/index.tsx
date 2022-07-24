@@ -18,6 +18,7 @@ interface AlertProps {
   placeholder?: string;
   checkBox?: React.ReactNode;
   warningText?: string;
+  isLoading?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onCancel: () => void;
   onConfirm: () => void;
@@ -35,6 +36,7 @@ const Alert = ({
   placeholder,
   checkBox,
   warningText,
+  isLoading,
 }: AlertProps) => {
   return (
     <AlertWrapper show={show}>
@@ -55,7 +57,12 @@ const Alert = ({
           {warningText && <p className="warning">{warningText}</p>}
         </AlertContent>
         <ButtonBox>
-          <Button onClick={onCancel} IsCancel={true} type="button">
+          <Button
+            onClick={onCancel}
+            IsCancel={true}
+            type="button"
+            disabled={isLoading ? true : false}
+          >
             취소
           </Button>
           <Button onClick={onConfirm} IsCancel={false} type="button">
