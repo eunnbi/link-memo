@@ -7,8 +7,7 @@ export const AlertWrapper = styled.div<{ show: boolean }>`
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: ${({ theme }) =>
-    theme.name === "light" ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0.6)"};
+  background-color: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
   z-index: 5;
@@ -25,8 +24,7 @@ export const AlertBox = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.3);
-  background: ${({ theme }) => theme.color.bgColor};
-  border: ${({ theme }) => theme.name === "dark" && `1px solid lightgray`};
+  background: ${({ theme }) => theme.color.secondBgColor};
   h2 {
     text-align: center;
   }
