@@ -53,7 +53,7 @@ const LoginForm = () => {
         onToggle={handleSaveId}
       />
       <ButtonBox>
-        <Button type="submit">
+        <Button type="submit" disabled={isLoading ? true : false}>
           {isLoading ? "로그인 중..." : "로그인하기"}
         </Button>
         <LinkButton to={"/register"}>회원가입하러 가기</LinkButton>
