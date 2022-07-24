@@ -1,16 +1,14 @@
-import React from "react";
 import FormInput from "../FormInput";
 import {
-  AlertWrapper,
-  AlertBox,
+  ModalWrapper,
+  ModalBox,
   ButtonBox,
   Button,
-  AlertContent,
+  ModalContent,
   Box,
-} from "./Alert.styles";
+} from "./Modal.styles";
 
-interface AlertProps {
-  show: boolean;
+interface ModalProps {
   title: string;
   message?: string;
   name?: string;
@@ -24,8 +22,7 @@ interface AlertProps {
   onConfirm: () => void;
 }
 
-const Alert = ({
-  show,
+const Modal = ({
   title,
   message,
   value,
@@ -37,11 +34,11 @@ const Alert = ({
   checkBox,
   warningText,
   isLoading,
-}: AlertProps) => {
+}: ModalProps) => {
   return (
-    <AlertWrapper show={show}>
-      <AlertBox>
-        <AlertContent>
+    <ModalWrapper>
+      <ModalBox>
+        <ModalContent>
           <h3>{title}</h3>
           {message && <p>{message}</p>}
           {checkBox && <Box>{checkBox}</Box>}
@@ -55,7 +52,7 @@ const Alert = ({
             />
           )}
           {warningText && <p className="warning">{warningText}</p>}
-        </AlertContent>
+        </ModalContent>
         <ButtonBox>
           <Button
             onClick={onCancel}
@@ -69,9 +66,9 @@ const Alert = ({
             확인
           </Button>
         </ButtonBox>
-      </AlertBox>
-    </AlertWrapper>
+      </ModalBox>
+    </ModalWrapper>
   );
 };
 
-export default Alert;
+export default Modal;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const AlertWrapper = styled.div<{ show: boolean }>`
-  display: ${({ show }) => (show ? "flex" : "none")};
+export const ModalWrapper = styled.div`
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ export const AlertWrapper = styled.div<{ show: boolean }>`
   z-index: 5;
 `;
 
-export const AlertBox = styled.div`
+export const ModalBox = styled.div`
   position: relative;
   background-color: white;
   border-radius: 20px;
@@ -38,7 +38,7 @@ export const AlertBox = styled.div`
   }
 `;
 
-export const AlertContent = styled.div`
+export const ModalContent = styled.div`
   margin-bottom: 4rem;
   p {
     font-size: 1rem;
