@@ -38,8 +38,8 @@ const RegisterForm = () => {
       id,
       password,
       checkPasswd!,
-      duplicateCheck.current,
-      IsDuplicate.current
+      duplicateCheck,
+      IsDuplicate
     );
     if (value === true) {
       mutate({ id, password });
