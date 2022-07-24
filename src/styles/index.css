@@ -93,14 +93,14 @@ button {
   font-family: "Pangolin";
   font-style: normal;
   font-weight: normal;
-  src: url("assets/fonts/Pangolin-Regular.ttf") format("truetype");
+  src: url("../assets/fonts/Pangolin-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "NotoSans";
   font-style: normal;
   font-weight: normal;
-  src: url("assets/fonts/NotoSansKR-Regular.otf") format("opentype");
+  src: url("../assets/fonts/NotoSansKR-Regular.otf") format("opentype");
 }
 
 ::-webkit-scrollbar {
@@ -116,22 +116,4 @@ button {
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background-color: lightgray;
-}
-
-@media screen and (max-width: 900px) {
-  html {
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  html {
-    font-size: 13px;
-  }
-}
-
-@media screen and (max-width: 300px) {
-  html {
-    font-size: 10px;
-  }
 }
