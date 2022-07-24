@@ -31,7 +31,7 @@ const Section = styled.section`
 `;
 
 const Heading = styled.div`
-  border-bottom: 1px solid #212121;
+  border-bottom: ${({ theme }) => `1px solid ${theme.color.borderColor}`};
   padding: 1rem 0;
   h2 > span {
     font-size: 1.2rem;
