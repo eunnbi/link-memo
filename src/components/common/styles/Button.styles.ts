@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 const buttonStyle = css`
-  background-color: #212121;
+  background-color: ${({ theme }) => theme.color.buttonColor};
   border-radius: 10px;
   color: #fff;
   font-size: 1rem;
   padding: 0.5rem 1rem;
-  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => `1px 5px 10px ${theme.color.shadowColor}`};
   text-align: center;
 `;
 
