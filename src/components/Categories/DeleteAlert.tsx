@@ -39,6 +39,7 @@ const DeleteAlert = ({ category, setCategory }: DeleteAlertProps) => {
       message="해당 카테고리에 포함된 모든 메모들도 함께 삭제됩니다."
       onCancel={onCancel}
       onConfirm={onConfirm}
+      isLoading={isLoading}
     />
   );
 };

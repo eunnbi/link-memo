@@ -57,6 +57,7 @@ const EditAlert = ({ category, setCategory }: EditAlertProps) => {
       onChange={onChange}
       onCancel={onCancel}
       onConfirm={onConfirm}
+      isLoading={isLoading}
     />
   );
 };

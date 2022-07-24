@@ -20,7 +20,7 @@ const AddAlert = ({ show, onClose }: AddAlertProps) => {
     initialize();
   };
 
-  const { mutate, status } = usePostCategory(onCancel);
+  const { mutate, isLoading } = usePostCategory(onCancel);
 
   const onConfirm = () => {
     if (form.categoryName === "") {
@@ -33,7 +33,7 @@ const AddAlert = ({ show, onClose }: AddAlertProps) => {
   return (
     <Alert
       show={show}
-      title={status === "loading" ? "카테고리 추가중..." : "카테고리 추가"}
+      title={isLoading ? "카테고리 추가중..." : "카테고리 추가"}
       name="categoryName"
       value={form.categoryName}
       placeholder="카테고리 이름"
@@ -41,6 +41,7 @@ const AddAlert = ({ show, onClose }: AddAlertProps) => {
       onChange={onChange}
       onCancel={onCancel}
       onConfirm={onConfirm}
+      isLoading={isLoading}
     />
   );
 };

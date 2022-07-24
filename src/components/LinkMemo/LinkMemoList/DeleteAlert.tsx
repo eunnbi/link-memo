@@ -36,6 +36,7 @@ const DeleteAlert = ({ linkMemo, setLinkMemo }: DeleteAlertProps) => {
       message="한번 삭제한 링크 메모는 복구할 수 없습니다."
       onCancel={onCancel}
       onConfirm={onConfirm}
+      isLoading={isLoading}
     />
   );
 };
