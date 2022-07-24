@@ -7,7 +7,7 @@ import { useForm } from "../../hooks/useForm";
 import { usePostRegister } from "./usePostRegister";
 import { useCheckPasswd } from "./useCheckPasswd";
 import { useCheckIdDuplicate } from "./useCheckIdDuplicate";
-import { useCheckFormValidation } from "./useCheckFormValidation";
+import { validateRegisterForm } from "./validateRegisterForm";
 
 export interface IGuideText {
   where: "id" | "password" | "checkPasswd" | "";
@@ -30,21 +30,21 @@ const RegisterForm = () => {
   const { mutate, isLoading } = usePostRegister(); // 회원가입 api 호출
   const { checkIdDuplicate, duplicateCheck, IsDuplicate } =
     useCheckIdDuplicate(setGuideText); // 아이디 중복 여부 체크 (api 호출)
-  const { checkFormValidation } = useCheckFormValidation(setGuideText); // 회원가입 폼 건증
   useCheckPasswd(password, checkPasswd!, setGuideText); // 비밀번호 확인 입력란 유효성 검증
 
   const onRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (
-      checkFormValidation(
-        id,
-        password,
-        checkPasswd!,
-        duplicateCheck.current,
-        IsDuplicate.current
-      )
-    ) {
+    const value = validateRegisterForm(
+      id,
+      password,
+      checkPasswd!,
+      duplicateCheck.current,
+      IsDuplicate.current
+    );
+    if (value === true) {
       mutate({ id, password });
+    } else {
+      setGuideText(value);
     }
   };
 
