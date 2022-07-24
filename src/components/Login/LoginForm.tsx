@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import FormInput from "../common/FormInput";
 import { Button, LinkButton } from "../common/styles/Button.styles";
-import CheckBox from "../common/CheckBox";
 import { Form, ButtonBox, Text } from "./LoginForm.styles";
 import { usePostLogin } from "./usePostLogin";
 import { useForm } from "../../hooks/useForm";
-import { useSaveId } from "./useSaveId";
 import { AuthState } from "../../types/auth";
+import SaveIdCheckBox from "./SaveIdCheckBox";
 
 const LoginForm = () => {
   const { form, onChange, setForm } = useForm<AuthState>({
@@ -15,7 +14,6 @@ const LoginForm = () => {
   });
   const { id, password } = form;
   const [warningText, setWarningText] = useState("");
-  const [saveId, handleSaveId] = useSaveId(id, setForm);
   const { mutate, isLoading } = usePostLogin(setWarningText);
 
   const onLogin = (e: React.FormEvent<HTMLFormElement>) => {
@@ -47,11 +45,7 @@ const LoginForm = () => {
         onChange={onChange}
         password={true}
       />
-      <CheckBox
-        label="아이디 저장"
-        isChecked={saveId}
-        onToggle={handleSaveId}
-      />
+      <SaveIdCheckBox id={form.id} setForm={setForm} />
       <ButtonBox>
         <Button type="submit" disabled={isLoading ? true : false}>
           {isLoading ? "로그인 중..." : "로그인하기"}
