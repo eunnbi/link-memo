@@ -4,7 +4,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { changeCategory, setLinkMemo } from "../modules/linkMemo";
 import { LinkMemoState } from "../types/linkMemo";
 import styled from "styled-components";
-import NotificationButton from "../components/Edit/NotificationButton";
+import NotifyButton from "../components/Edit/Notification/NotifyButton";
 import EditForm from "../components/Edit/EditForm";
 
 const EditPage = () => {
@@ -32,7 +32,7 @@ const EditPage = () => {
   }, []);
   return (
     <Main>
-      <NotificationButton />
+      <NotifyButton />
       <EditForm id={memoId ? parseInt(memoId) : undefined} />
     </Main>
   );
