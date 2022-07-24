@@ -8,9 +8,15 @@ declare module "styled-components" {
       tablet: string;
     };
     color: {
+      bodyBgColor: string;
       bgColor: string;
       textColor: string;
       shadowColor: string;
+      borderColor: string;
+      buttonColor: string;
+      red: string;
+      blue: string;
+      hoverColor: string;
     };
     name: string;
   }
