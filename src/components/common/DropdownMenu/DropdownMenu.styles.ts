@@ -18,7 +18,7 @@ export const List = styled.div<{ show: boolean }>`
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.2);
   height: ${({ show }) => (show ? "6rem" : "0")};
   transition: all 0.2s linear;
-  background-color: white;
+  background-color: ${({ theme }) => theme.color.bgColor};
   overflow: hidden;
   z-index: 2;
 `;
@@ -29,6 +29,6 @@ export const Item = styled.div`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: ${({ theme }) => theme.color.hoverColor};
   }
 `;
