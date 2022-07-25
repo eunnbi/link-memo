@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { BsSuitHeartFill, BsSuitHeart } from "react-icons/bs";
 import styled from "styled-components";
+import { useToggle } from "../../../hooks/useToggle";
 import { useDebouncePostLike } from "./hooks/useDebouncePostLike";
 
 interface LikeButtonProps {
@@ -9,8 +9,7 @@ interface LikeButtonProps {
 }
 
 const LikeButton = ({ initialLike, memoId }: LikeButtonProps) => {
-  const [like, setLike] = useState(initialLike);
-  const onLike = () => setLike(!like);
+  const [like, onLike] = useToggle(initialLike);
 
   useDebouncePostLike(initialLike, like, memoId);
 
