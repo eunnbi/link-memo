@@ -28,10 +28,13 @@ const Input = styled.input`
   max-width: 400px;
   background-color: ${({ theme }) => theme.color.grayBgColor};
   color: ${({ theme }) => theme.color.textColor};
-  &::-moz-placeholder {
-    color: ${({ theme }) => theme.name === "dark" && "lightgray"};
-  }
   &::placeholder {
-    color: ${({ theme }) => theme.name === "dark" && "lightgray"};
+    color: ${({ theme }) => theme.color.placeholderColor};
+  }
+  &::-moz-placeholder {
+    color: ${({ theme }) => theme.color.placeholderColor};
+  }
+  &::-webkit-input-placeholder {
+    color: ${({ theme }) => theme.color.placeholderColor};
   }
 `;
