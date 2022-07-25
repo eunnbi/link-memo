@@ -13,10 +13,7 @@ export const changeInput = (name: string, value: string) => ({
 export const setDuplicateValue = ({
   isIdDuplicate,
   duplicateCheck,
-}: {
-  isIdDuplicate: boolean;
-  duplicateCheck: boolean;
-}) => ({
+}: Pick<RegisterState, "isIdDuplicate" | "duplicateCheck">) => ({
   type: SET_DUPLICATE_VALUE,
   isIdDuplicate,
   duplicateCheck,
