@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import linkMemo from "./linkMemo";
+import edit from "./edit";
+import register from "./register";
+import login from "./login";
 
 const rootReducer = combineReducers({
-  linkMemo,
+  edit,
+  register,
+  login,
 });
 
 export default rootReducer;
