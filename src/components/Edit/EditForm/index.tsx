@@ -1,9 +1,9 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { useInitialize } from "./useInitialize";
 import { usePostLinkMemo } from "./usePostLinkMemo";
 import { usePatchLinkMemo } from "./usePatchLinkMemo";
-import { useInputValue } from "../hooks/useInputValue";
+import { useValidation } from "./useValidation";
+import { useEditFormState } from "../hooks/useEditFormState";
 import CategorySelectBox from "../CategorySelectBox";
 import LinkInputs from "../LinkInputs";
 import MemoInput from "../MemoInput";
@@ -14,21 +14,15 @@ interface EditFormProps {
 }
 
 const EditForm = ({ id }: EditFormProps) => {
-  const [warningText, setWarningText] = useState("");
-  const { linkName, linkUrl, content, category } = useInputValue();
+  const { linkName, linkUrl, content, category, warningText } =
+    useEditFormState();
   const { mutate: postMutate, isLoading: postLoading } = usePostLinkMemo();
   const { mutate: patchMutate, isLoading: patchLoading } = usePatchLinkMemo();
+  const { validateForm } = useValidation();
 
   const onEdit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (linkName === "") {
-      setWarningText("링크 이름은 필수 입력 항목입니다.");
-      return;
-    }
-    if (linkUrl === "") {
-      setWarningText("링크 주소는 필수 입력 항목입니다.");
-      return;
-    }
+    if (!validateForm({ linkName, linkUrl })) return;
     if (id) {
       patchMutate({
         linkName,
