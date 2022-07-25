@@ -7,10 +7,13 @@ export const Textarea = styled.textarea`
   padding: 1rem;
   font-family: NotoSans;
   border: none;
-  border-bottom: 1px solid #000;
+
   border-radius: 0;
   outline: none;
   margin-bottom: 3rem;
+  background-color: transparent;
+  color: ${({ theme }) => theme.color.textColor};
+  border-bottom: ${({ theme }) => `1px solid ${theme.color.borderColor}`};
   &:focus {
     outline: none;
   }
