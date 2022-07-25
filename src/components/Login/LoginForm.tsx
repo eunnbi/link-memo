@@ -1,31 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import FormInput from "../common/FormInput";
+import SaveIdCheckBox from "./SaveIdCheckBox";
 import { Button, LinkButton } from "../common/styles/Button.styles";
 import { Form, ButtonBox, Text } from "./LoginForm.styles";
-import { usePostLogin } from "./usePostLogin";
-import { useForm } from "../../hooks/useForm";
-import { AuthState } from "../../types/auth";
-import SaveIdCheckBox from "./SaveIdCheckBox";
+import { usePostLogin } from "./hooks/usePostLogin";
+import { useLoginState } from "./hooks/useLoginState";
+import { useChangeInput } from "./hooks/useChangeInput";
+import { useValidation } from "./hooks/useValidation";
 
 const LoginForm = () => {
-  const { form, onChange, setForm } = useForm<AuthState>({
-    id: "",
-    password: "",
-  });
-  const { id, password } = form;
-  const [warningText, setWarningText] = useState("");
-  const { mutate, isLoading } = usePostLogin(setWarningText);
+  const { id, password, warningText } = useLoginState();
+  const { onChange } = useChangeInput();
+  const { validateForm } = useValidation();
+  const { mutate, isLoading } = usePostLogin();
 
   const onLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (id === "") {
-      setWarningText("아이디를 입력해주세요.");
-      return;
-    } else if (password === "") {
-      setWarningText("비밀번호를 입력해주세요.");
-      return;
+    if (validateForm({ id, password })) {
+      mutate({ id, password });
     }
-    mutate({ id, password });
   };
 
   return (
@@ -33,19 +26,19 @@ const LoginForm = () => {
       {warningText && <Text>{warningText}</Text>}
       <FormInput
         placeholder="아이디"
-        value={form.id}
+        value={id}
         name="id"
         onChange={onChange}
         password={false}
       />
       <FormInput
         placeholder="비밀번호"
-        value={form.password}
+        value={password}
         name="password"
         onChange={onChange}
         password={true}
       />
-      <SaveIdCheckBox id={form.id} setForm={setForm} />
+      <SaveIdCheckBox id={id} />
       <ButtonBox>
         <Button type="submit" disabled={isLoading ? true : false}>
           {isLoading ? "로그인 중..." : "로그인하기"}
