@@ -18,6 +18,7 @@ declare module "styled-components" {
       hoverColor: string;
       grayBgColor: string;
       secondBgColor: string;
+      placeholderColor: string;
     };
     name: string;
   }
