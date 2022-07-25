@@ -3,22 +3,6 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
-const Main = styled.main`
-  max-width: 520px;
-  margin-bottom: 0;
-  justify-content: space-between;
-  min-height: 90vh;
-`;
-
-const Logo = styled.h1`
-  font-size: 4rem;
-  font-family: Pangolin;
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const LoginPage = () => {
   const location = useLocation();
   const state = location.state as { register?: boolean };
@@ -36,3 +20,19 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+const Main = styled.main`
+  max-width: 520px;
+  margin-bottom: 0;
+  justify-content: space-between;
+  min-height: 90vh;
+`;
+
+const Logo = styled.h1`
+  font-size: 4rem;
+  font-family: Pangolin;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
