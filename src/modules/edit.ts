@@ -1,18 +1,19 @@
 import { LinkMemoState } from "../types/linkMemo";
 
-const SET_LINK_MEMO = "bookmark/SET_LINK_MEMO" as const; // as const 이 문법을 쓰면 액션 함수를 통해 액션 객체를 만들면 type의 typescript 타입이 string이 아닌 실제값을 가리킨다.
-const CHANGE_CATEGORY = "bookmark/CHANGE_CATEGORY" as const;
-const CHANGE_INPUT_FIELD = "boomark/CHANGE_INPUT_FIELD" as const;
-const INITIALIZE = "bookmark/INITIALIZE" as const;
+const SET_EDIT_FORM = "edit/SET_EDIT_FORM" as const; // as const 이 문법을 쓰면 액션 함수를 통해 액션 객체를 만들면 type의 typescript 타입이 string이 아닌 실제값을 가리킨다.
+const CHANGE_CATEGORY = "edit/CHANGE_CATEGORY" as const;
+const CHANGE_INPUT_FIELD = "edit/CHANGE_INPUT_FIELD" as const;
+const SET_WARNING_TEXT = "edit/SET_WARNING_TEXT" as const;
+const INITIALIZE = "edit/INITIALIZE" as const;
 
-export const setLinkMemo = (
+export const setEditForm = (
   linkName: string,
   linkUrl: string,
   content: string,
   categoryId: number,
   categoryValue: string
 ) => ({
-  type: SET_LINK_MEMO,
+  type: SET_EDIT_FORM,
   linkName,
   linkUrl,
   content,
@@ -35,14 +36,25 @@ export const changeInputField = (name: string, value: string) => ({
 export const initialize = () => ({
   type: INITIALIZE,
 });
+
+export const setWarningText = (text: string) => ({
+  type: SET_WARNING_TEXT,
+  text,
+});
+
+interface EditState extends LinkMemoState {
+  warningText: string;
+}
+
 // 액션 객체 type
-type LinkMemoAction =
-  | ReturnType<typeof setLinkMemo>
+type EditAction =
+  | ReturnType<typeof setEditForm>
   | ReturnType<typeof changeCategory>
   | ReturnType<typeof changeInputField>
+  | ReturnType<typeof setWarningText>
   | ReturnType<typeof initialize>;
 
-const initialState: LinkMemoState = {
+const initialState: EditState = {
   linkName: "",
   linkUrl: "",
   content: "",
@@ -50,14 +62,15 @@ const initialState: LinkMemoState = {
     categoryId: -1,
     categoryName: "",
   },
+  warningText: "",
 };
 
-const linkMemo = (
-  state: LinkMemoState = initialState,
-  action: LinkMemoAction
-): LinkMemoState => {
+const edit = (
+  state: EditState = initialState,
+  action: EditAction
+): EditState => {
   switch (action.type) {
-    case SET_LINK_MEMO:
+    case SET_EDIT_FORM:
       return {
         ...state,
         linkName: action.linkName,
@@ -81,6 +94,11 @@ const linkMemo = (
         ...state,
         [action.name]: action.value,
       };
+    case SET_WARNING_TEXT:
+      return {
+        ...state,
+        warningText: action.text,
+      };
     case INITIALIZE:
       return {
         linkName: "",
@@ -90,10 +108,11 @@ const linkMemo = (
           categoryId: -1,
           categoryName: "",
         },
+        warningText: "",
       };
     default:
       return state;
   }
 };
 
-export default linkMemo;
+export default edit;
