@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { changeInputField } from "../../../modules/linkMemo";
+import { changeInputField } from "../../../modules/edit";
 
 export const useInputChange = () => {
   const dispatch = useDispatch();

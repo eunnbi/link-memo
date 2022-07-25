@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { changeCategory } from "../../../modules/linkMemo";
+import { changeCategory } from "../../../modules/edit";
 import { useCallback } from "react";
 
 export const useSelectCategory = () => {
