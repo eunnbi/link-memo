@@ -1,10 +1,10 @@
 import FormInput from "../../common/FormInput";
 import { useInputChange } from "../hooks/useInputChange";
-import { useInputValue } from "../hooks/useInputValue";
+import { useEditFormState } from "../hooks/useEditFormState";
 import styled from "styled-components";
 
 const LinkInputs = () => {
-  const { linkName, linkUrl } = useInputValue();
+  const { linkName, linkUrl } = useEditFormState();
   const onChange = useInputChange();
   return (
     <InputBox>
