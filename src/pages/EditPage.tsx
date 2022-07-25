@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
-import { changeCategory, setLinkMemo } from "../modules/linkMemo";
+import { changeCategory, setEditForm } from "../modules/edit";
 import { LinkMemoState } from "../types/linkMemo";
 import styled from "styled-components";
 import NotifyButton from "../components/Edit/Notification/NotifyButton";
@@ -16,7 +16,7 @@ const EditPage = () => {
   useEffect(() => {
     if (memoId && state) {
       dispatch(
-        setLinkMemo(
+        setEditForm(
           state.linkName,
           state.linkUrl,
           state.content,
@@ -30,6 +30,7 @@ const EditPage = () => {
       );
     }
   }, []);
+
   return (
     <Main>
       <NotifyButton />
