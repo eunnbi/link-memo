@@ -1,50 +1,33 @@
-import { useState } from "react";
 import FormInput from "../common/FormInput";
 import { Button } from "../common/styles/Button.styles";
 import { Form, FormRow, Text } from "./RegisterForm.styles";
-import { AuthState } from "../../types/auth";
-import { useForm } from "../../hooks/useForm";
-import { usePostRegister } from "./usePostRegister";
-import { useCheckPasswd } from "./useCheckPasswd";
-import { useCheckIdDuplicate } from "./useCheckIdDuplicate";
-import { validateRegisterForm } from "./validateRegisterForm";
-
-export interface IGuideText {
-  where: "id" | "password" | "checkPasswd" | "";
-  text: string;
-  isWarning: boolean;
-}
+import { usePostRegister } from "./hooks/usePostRegister";
+import { useCheckPasswd } from "./hooks/useCheckPasswd";
+import { useValidation } from "./hooks/useValidation";
+import { useRegisterState } from "./hooks/useRegisterState";
+import { useChangeInput } from "./hooks/useChangeInput";
+import DuplicateCheckButton from "./DuplicateCheckButton";
 
 const RegisterForm = () => {
-  const [guideText, setGuideText] = useState<IGuideText>({
-    where: "",
-    text: "",
-    isWarning: true,
-  });
-  const { form, onChange } = useForm<AuthState>({
-    id: "",
-    password: "",
-    checkPasswd: "",
-  });
-  const { id, password, checkPasswd } = form;
+  const {
+    guideText,
+    id,
+    password,
+    checkPasswd,
+    duplicateCheck,
+    isIdDuplicate,
+  } = useRegisterState();
+  const { onChange } = useChangeInput();
+  const { validateForm } = useValidation();
   const { mutate, isLoading } = usePostRegister(); // 회원가입 api 호출
-  const { checkIdDuplicate, duplicateCheck, IsDuplicate } =
-    useCheckIdDuplicate(setGuideText); // 아이디 중복 여부 체크 (api 호출)
-  useCheckPasswd(password, checkPasswd!, setGuideText); // 비밀번호 확인 입력란 유효성 검증
+  useCheckPasswd(password, checkPasswd); // 비밀번호 확인 입력란 유효성 검증
 
   const onRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const value = validateRegisterForm(
-      id,
-      password,
-      checkPasswd!,
-      duplicateCheck,
-      IsDuplicate
-    );
-    if (value === true) {
+    if (
+      validateForm({ id, password, checkPasswd, duplicateCheck, isIdDuplicate })
+    ) {
       mutate({ id, password });
-    } else {
-      setGuideText(value);
     }
   };
 
@@ -59,9 +42,7 @@ const RegisterForm = () => {
             password={false}
             onChange={onChange}
           />
-          <Button onClick={() => checkIdDuplicate(id)} type="button">
-            중복확인
-          </Button>
+          <DuplicateCheckButton id={id} />
         </div>
         {guideText.where === "id" && (
           <Text warning={guideText.isWarning}>{guideText.text}</Text>
