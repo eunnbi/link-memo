@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { AuthResponse, AuthState } from "../../types/auth";
-import { register } from "../../api/auth";
+import { AuthResponse, AuthState } from "../../../types/auth";
+import { register } from "../../../api/auth";
 
 export const usePostRegister = () => {
   const navigation = useNavigate();
