@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BsSuitHeartFill, BsSuitHeart } from "react-icons/bs";
 import styled from "styled-components";
-import { useDebouncePostLike } from "./useDebouncePostLike";
+import { useDebouncePostLike } from "./hooks/useDebouncePostLike";
 
 interface LikeButtonProps {
   initialLike: boolean;
