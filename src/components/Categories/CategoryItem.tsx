@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { Category } from "../../types/category";
+import { CategoryResponse } from "../../types/category";
 import { useToggle } from "../../hooks/useToggle";
 import { useNavigate } from "react-router-dom";
 import { BsLink45Deg } from "react-icons/bs";
 import CategoryMenu from "./CategoryMenu";
 
 interface CategoryItemProps {
-  category: Category;
+  category: CategoryResponse;
 }
 
 const CategoryItem = ({ category }: CategoryItemProps) => {
