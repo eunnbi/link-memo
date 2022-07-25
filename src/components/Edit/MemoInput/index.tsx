@@ -1,9 +1,9 @@
 import { useInputChange } from "../hooks/useInputChange";
-import { useInputValue } from "../hooks/useInputValue";
+import { useEditFormState } from "../hooks/useEditFormState";
 import { Textarea } from "./MemoInput.styles";
 
 const MemoInput = () => {
-  const { content } = useInputValue();
+  const { content } = useEditFormState();
   const onChange = useInputChange();
   return (
     <Textarea
