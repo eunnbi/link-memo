@@ -1,6 +1,6 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { deleteCategory } from "../../../api/categories";
-import { categoriesKey } from "../../../constants/queryKey";
+import { categoryKeys } from "../../../constants/queryKey";
 import { SuccessResponse } from "../../../types";
 import { CategoryId } from "../../../types/category";
 
@@ -10,7 +10,7 @@ export const useDeleteCategory = (onCancel: () => void) => {
     ({ categoryId }) => deleteCategory(categoryId),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries(categoriesKey);
+        queryClient.invalidateQueries(categoryKeys.all);
         onCancel();
       },
     }

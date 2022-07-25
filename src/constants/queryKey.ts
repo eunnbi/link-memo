@@ -1,4 +1,6 @@
-export const categoriesKey = ["categories"] as const;
+export const categoryKeys = {
+  all: ["categories"] as const,
+};
 
 export const linkMemoKeys = {
   all: ["linkMemos"] as const,

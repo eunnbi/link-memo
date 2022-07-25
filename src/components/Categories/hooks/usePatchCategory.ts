@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { patchCategory } from "../../../api/categories";
-import { categoriesKey } from "../../../constants/queryKey";
+import { categoryKeys } from "../../../constants/queryKey";
 import { SuccessResponse } from "../../../types";
 import { Category } from "../../../types/category";
 
@@ -10,7 +10,7 @@ export const usePatchCategory = (onCancel: () => void) => {
     ({ categoryId, categoryName }) => patchCategory(categoryName, categoryId),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries(categoriesKey);
+        queryClient.invalidateQueries(categoryKeys.all);
         onCancel();
       },
     }
