@@ -1,17 +1,15 @@
 export interface Category {
   categoryId: number;
   categoryName: string;
-  memoCnt?: number;
+}
+
+export interface CategoryResponse extends Category {
+  memoCnt: number;
 }
 
 export interface CategoriesGetResponse {
-  categories: Category[];
+  categories: CategoryResponse[];
 }
 
-export interface CategoryId {
-  categoryId: Category["categoryId"];
-}
-
-export interface CategoryName {
-  categoryName: Category["categoryName"];
-}
+export type CategoryId = Pick<Category, "categoryId">;
+export type CategoryName = Pick<Category, "categoryName">;
