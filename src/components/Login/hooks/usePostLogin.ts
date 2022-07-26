@@ -21,7 +21,6 @@ export const usePostLogin = () => {
         const { success, userId } = data;
         if (success) {
           storeUserId(userId!);
-          changeWarningText("");
           navigate("/main");
         } else {
           changeWarningText(
