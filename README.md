@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+## ✨ Instruction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 개발 공부를 하다 보면 구글링을 정말 많이 하는데, 이때 찾은 자료의 링크 주소를 카카오톡으로 나에게 보내거나 노션에 기록하거나 브라우저 즐겨찾기에 저장합니다.
 
-## Available Scripts
+> 열심히 구글링해서 찾은 자료의 링크 주소들이 여러 곳에 분산되어 있다 보니 나중에 다시 자료가 필요할 때 찾기가 힘듭니다.
 
-In the project directory, you can run:
+> 위 경험을 바탕으로 링크 주소를 카테고리별로 한 곳에 모아 저장할 수 있고, 더불어 어떤 도움이 되었는지 간단하게 기록할 수 있는 메모장을 개발했습니다.
 
-### `yarn start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## ⏰ Dev Period
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`2022-06-06` ~ `2022-07-30`
 
-### `yarn test`
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💅 Design
 
-### `yarn build`
+- [와이어프레임](https://www.figma.com/file/hg9Km0N47f3xC2M2Kk3lRh/Link-Memo)
+- Mobile First Design
+- 반응형 웹 디자인 : `desktop`, `tablet`, `mobile`
+- `Chrome`, `Safari`, `Firefox`, `Edge IE` 등 최신 브라우저에 최적화
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🔨 Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Frontend
 
-### `yarn eject`
+<img alt="Typescript" src ="https://img.shields.io/badge/TypeScript-3178C6.svg?&logo=JavaScript&logoColor=white"/> <img alt="React" src ="https://img.shields.io/badge/React-61DAFB.svg?&logo=React&logoColor=white"/>
+<img alt="Redux" src ="https://img.shields.io/badge/Redux-764ABC.svg?&logo=Redux&logoColor=white"/>
+<img alt="Styled-Component" src ="https://img.shields.io/badge/Styled Components-DB7093.svg?&logo=styled-components&logoColor=white"/>
+<img alt="React-Query" src ="https://img.shields.io/badge/React Query-FF4154.svg?&logo=React Query&logoColor=white"/>
+<img alt="Netlify" src ="https://img.shields.io/badge/Netlify-00C7B7.svg?&logo=Netlify&logoColor=white"/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Backend
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img alt="Python" src ="https://img.shields.io/badge/Python-3776AB.svg?&logo=Python&logoColor=white"/> <img alt="Flask" src ="https://img.shields.io/badge/Flask-000000.svg?&logo=Flask&logoColor=white"/> <img alt="PostgreSQL" src ="https://img.shields.io/badge/PostgreSQL-4169E1.svg?&logo=PostgreSQL&logoColor=white"/>
+<img alt="AWS Lambda" src ="https://img.shields.io/badge/AWS Lambda-FF9900.svg?&logo=AWS Lambda&logoColor=white"/>
