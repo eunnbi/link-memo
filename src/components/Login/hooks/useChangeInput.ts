@@ -6,9 +6,9 @@ export const useChangeInput = () => {
   const dispatch = useDispatch();
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    dispatch(changeInput(name, value));
+    dispatch(changeInput(name as "id" | "password", value));
   };
-  const changeInputValue = (name: string, value: string) => {
+  const changeInputValue = (name: "id" | "password", value: string) => {
     dispatch(changeInput(name, value));
   };
   return { onChange, changeInputValue };
