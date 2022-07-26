@@ -3,6 +3,7 @@ import { IGuideText, RegisterState } from "../types/auth";
 const CHANGE_INPUT = "register/CHANGE_INPUT" as const;
 const SET_DUPLICATE_VALUE = "register/SET_DUPLICATE_VALUE" as const;
 const SET_GUIDE_TEXT = "register/SET_GUIDE_TEXT" as const;
+const INITIALIZE = "register/INITIALIZE" as const;
 
 export const changeInput = (name: string, value: string) => ({
   type: CHANGE_INPUT,
@@ -24,6 +25,10 @@ export const setGuideText = (guideText: IGuideText) => ({
   guideText,
 });
 
+export const initialize = () => ({
+  type: INITIALIZE,
+});
+
 const initialState: RegisterState = {
   id: "",
   password: "",
@@ -40,7 +45,8 @@ const initialState: RegisterState = {
 type RegisterAction =
   | ReturnType<typeof changeInput>
   | ReturnType<typeof setDuplicateValue>
-  | ReturnType<typeof setGuideText>;
+  | ReturnType<typeof setGuideText>
+  | ReturnType<typeof initialize>;
 
 const register = (
   state: RegisterState = initialState,
@@ -62,6 +68,19 @@ const register = (
       return {
         ...state,
         guideText: action.guideText,
+      };
+    case INITIALIZE:
+      return {
+        id: "",
+        password: "",
+        checkPasswd: "",
+        isIdDuplicate: true,
+        duplicateCheck: false,
+        guideText: {
+          where: "",
+          text: "",
+          isWarning: true,
+        },
       };
     default:
       return state;
