@@ -2,7 +2,7 @@
 <img src="https://user-images.githubusercontent.com/89760088/180961840-fb3afe8d-4bf5-4ead-977f-c5a474c317a6.png"/>
 </p>
 
-## ✨ Instruction
+## 📝 Instruction
 
 > 개발 공부를 하다 보면 구글링을 정말 많이 하는데, 이때 찾은 자료의 링크 주소를 카카오톡으로 나에게 보내거나 노션에 기록하거나 브라우저 즐겨찾기에 저장합니다.
 
