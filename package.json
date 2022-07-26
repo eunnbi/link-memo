@@ -2,7 +2,7 @@
   "name": "linkmemo",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8888",
+  "proxy": "https://dsdm1cnijd.execute-api.ap-northeast-2.amazonaws.com/dev",
   "dependencies": {
     "@tanstack/react-query": "^4.0.5",
     "@testing-library/jest-dom": "^5.14.1",
