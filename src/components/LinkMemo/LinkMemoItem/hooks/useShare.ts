@@ -1,5 +1,6 @@
 import { LinkMemoShare } from "../../../../types/linkMemo";
 import { getFavicon } from "../../../../utils/linkMemo";
+import { shareLink } from "../../../../constants/shareLink";
 
 export const useShare = () => {
   const shareToFacebook = (linkUrl: string) => {
@@ -9,7 +10,7 @@ export const useShare = () => {
     window.open(`https://twitter.com/intent/tweet?url=${linkUrl}`);
   };
   const shareToKakao = ({ linkName, linkUrl }: LinkMemoShare) => {
-    const link = `http://localhost:3000/share?linkUrl=${linkUrl}`;
+    const link = `${shareLink}${linkUrl}`;
     window.Kakao.Link.sendDefault({
       objectType: "list",
       headerTitle: "링크 공유",
