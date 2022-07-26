@@ -23,9 +23,7 @@ const CategoryItem = ({ category }: CategoryItemProps) => {
         <h3>{categoryName}</h3>
       </div>
       <div>
-        <p>
-          <BsLink45Deg /> {memoCnt}
-        </p>
+        <p>🔗 {memoCnt}</p>
         <CategoryMenu
           show={show}
           toggle={toggle}
