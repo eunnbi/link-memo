@@ -27,6 +27,11 @@
 
 <br/>
 
+## 📬API
+- [Swagger 문서](https://dsdm1cnijd.execute-api.ap-northeast-2.amazonaws.com/dev/api-docs)
+
+<br/>
+
 ## 🔨 Tech Stack
 
 ### Frontend
