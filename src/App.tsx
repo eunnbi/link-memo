@@ -7,6 +7,7 @@ import RegisterPage from "./pages/RegisterPage";
 import MainPage from "./pages/MainPage";
 import LinkMemoPage from "./pages/LinkMemoPage";
 import EditPage from "./pages/EditPage";
+import SharePage from "./pages/SharePage";
 import { lightTheme, darkTheme } from "./styles/theme";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import ModalsProvider from "./contexts/ModalsContext";
@@ -52,6 +53,7 @@ function App() {
               <Route path="/edit/*" element={<EditPage />}>
                 <Route path=":memoId" element={<EditPage />} />
               </Route>
+              <Route path="/share" element={<SharePage />} />
             </Routes>
             <Modals />
           </BrowserRouter>
