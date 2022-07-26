@@ -7,6 +7,7 @@ import { usePostLogin } from "./hooks/usePostLogin";
 import { useLoginState } from "./hooks/useLoginState";
 import { useChangeInput } from "./hooks/useChangeInput";
 import { useValidation } from "./hooks/useValidation";
+import { useInitialize } from "./hooks/useInitialize";
 
 const LoginForm = () => {
   const { id, password, warningText } = useLoginState();
@@ -20,6 +21,8 @@ const LoginForm = () => {
       mutate({ id, password });
     }
   };
+
+  useInitialize();
 
   return (
     <Form onSubmit={onLogin}>
@@ -38,7 +41,7 @@ const LoginForm = () => {
         onChange={onChange}
         password={true}
       />
-      <SaveIdCheckBox id={id} />
+      <SaveIdCheckBox />
       <ButtonBox>
         <Button type="submit" disabled={isLoading ? true : false}>
           {isLoading ? "로그인 중..." : "로그인하기"}
