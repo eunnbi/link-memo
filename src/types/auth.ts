@@ -11,6 +11,7 @@ export interface AuthState {
 
 export interface LoginState extends AuthState {
   warningText: string;
+  saveId: boolean;
 }
 
 export interface RegisterState extends AuthState {
