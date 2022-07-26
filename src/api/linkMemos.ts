@@ -57,8 +57,8 @@ export const getFavoriteLinkMemos = async () => {
   return data;
 };
 
-export const postLinkMemoLike = async (value: boolean, memoId: number) => {
-  const { data } = await axios.post("/linkMemos/like", {
+export const putLinkMemoLike = async (value: boolean, memoId: number) => {
+  const { data } = await axios.put("/linkMemos/like", {
     memoId,
     value,
   });
