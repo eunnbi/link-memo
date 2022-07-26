@@ -3,7 +3,9 @@ import { getUserId } from "../utils/auth";
 
 export const getCategories = async () => {
   const userId = getUserId();
-  const { data } = await axios.get(`/categories?userId=${userId}`);
+  const { data } = await axios.get(
+    `https://dsdm1cnijd.execute-api.ap-northeast-2.amazonaws.com/dev/categories?userId=${userId}`
+  );
   return data;
 };
 
