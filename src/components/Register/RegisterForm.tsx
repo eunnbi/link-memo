@@ -6,6 +6,7 @@ import { useCheckPasswd } from "./hooks/useCheckPasswd";
 import { useValidation } from "./hooks/useValidation";
 import { useRegisterState } from "./hooks/useRegisterState";
 import { useChangeInput } from "./hooks/useChangeInput";
+import { useInitialize } from "./hooks/useInitialize";
 import DuplicateCheckButton from "./DuplicateCheckButton";
 
 const RegisterForm = () => {
@@ -30,6 +31,8 @@ const RegisterForm = () => {
       mutate({ id, password });
     }
   };
+
+  useInitialize();
 
   return (
     <Form onSubmit={onRegister}>
