@@ -9,7 +9,20 @@ interface ShareButtonProps {
 
 const ShareButton = ({ linkMemo }: ShareButtonProps) => {
   const { openModal } = useModal();
-  const clickShareButton = () => openModal(ShareModal, { linkMemo });
+  const clickShareButton = () => {
+    const agent = navigator.userAgent.toLowerCase();
+    if (agent.indexOf("chrome") !== -1) {
+      openModal(ShareModal, { linkMemo });
+      return;
+    }
+    if (agent.indexOf("safari") !== -1) {
+      navigator.share({
+        url: linkMemo.linkUrl,
+      });
+      return;
+    }
+    openModal(ShareModal, { linkMemo });
+  };
   return <IoMdShare onClick={clickShareButton} />;
 };
 
