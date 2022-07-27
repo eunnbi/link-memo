@@ -13,7 +13,7 @@ export const usePatchLinkMemo = () => {
       patchLinkMemo(linkName, linkUrl, content, categoryId, memoId!),
     {
       onSuccess: (data, { categoryId, categoryName }) => {
-        queryClient.invalidateQueries(linkMemoKeys.all);
+        queryClient.invalidateQueries();
         navigate(`/memo/${categoryId}`, { state: { categoryName } });
       },
     }
