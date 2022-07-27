@@ -1,6 +1,6 @@
 import BackButton from "../../common/BackButton";
 import { useModal } from "../../../hooks/useModal";
-import NotificationModal from "./NotificationModal";
+import NotificationModal from "../NotificationModal";
 
 const NotifyButton = () => {
   const { openModal } = useModal();
