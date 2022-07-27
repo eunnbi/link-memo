@@ -7,10 +7,9 @@ export const Textarea = styled.textarea`
   padding: 1rem;
   font-family: NotoSans;
   border: none;
-
   border-radius: 0;
   outline: none;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   background-color: transparent;
   color: ${({ theme }) => theme.color.textColor};
   border-bottom: ${({ theme }) => `1px solid ${theme.color.borderColor}`};
