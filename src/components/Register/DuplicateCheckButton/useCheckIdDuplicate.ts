@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { getIsIdDuplicate } from "../../../api/auth";
 import { setDuplicateValue } from "../../../modules/register";
-import { useChangeGuideText } from "./useChangeGuideText";
+import { useChangeGuideText } from "../hooks/useChangeGuideText";
 
 export const useCheckIdDuplicate = () => {
   const changeGuideText = useChangeGuideText();
