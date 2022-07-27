@@ -1,5 +1,5 @@
-import { useDeleteCategory } from "./hooks/useDeleteCategory";
-import Modal from "../common/Modals/Modal";
+import { useDeleteCategory } from "./useDeleteCategory";
+import Modal from "../../common/Modals/Modal";
 
 interface DeleteModalProps {
   categoryId: number;
