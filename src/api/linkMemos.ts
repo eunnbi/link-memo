@@ -23,7 +23,7 @@ export const postLinkMemo = async (
   categoryId: number
 ) => {
   const userId = getUserId();
-  const { data } = await axios.post(BASE_URL, {
+  const { data } = await axios.post(`${BASE_URL}/add`, {
     userId,
     linkName,
     linkUrl,
