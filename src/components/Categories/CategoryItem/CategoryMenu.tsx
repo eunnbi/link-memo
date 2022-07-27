@@ -1,8 +1,8 @@
-import DropdownMenu from "../common/DropdownMenu";
-import { useModal } from "../../hooks/useModal";
-import DeleteModal from "./DeleteModal";
-import { Category } from "../../types/category";
-import EditModal from "./EditModal";
+import DropdownMenu from "../../common/DropdownMenu";
+import { useModal } from "../../../hooks/useModal";
+import DeleteModal from "../DeleteModal";
+import { Category } from "../../../types/category";
+import EditModal from "../EditModal";
 
 interface CategoryMenuProps {
   show: boolean;
