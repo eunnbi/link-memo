@@ -4,7 +4,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { changeCategory, setEditForm } from "../modules/edit";
 import { LinkMemoState } from "../types/linkMemo";
 import styled from "styled-components";
-import NotifyButton from "../components/Edit/Notification/NotifyButton";
+import NotifyButton from "../components/Edit/NofityButton";
 import EditForm from "../components/Edit/EditForm";
 
 const EditPage = () => {
