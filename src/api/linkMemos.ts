@@ -1,14 +1,15 @@
 import axios from "axios";
 import { getUserId } from "../utils/auth";
 
-const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BASE_URL = `${BACKEND_URL}/linkMemos`;
 
 export const getLinkMemos = async (
   categoryId: number,
   searchQuery: string | undefined
 ) => {
   const userId = getUserId();
-  const url = `${BACKEND_BASE_URL}/linkMemos?userId=${userId}&categoryId=${categoryId}${
+  const url = `${BASE_URL}?userId=${userId}&categoryId=${categoryId}${
     searchQuery !== "" ? `&searchQuery=${searchQuery}` : ""
   }`;
   const { data } = await axios.get(url);
@@ -22,7 +23,7 @@ export const postLinkMemo = async (
   categoryId: number
 ) => {
   const userId = getUserId();
-  const { data } = await axios.post("/linkMemos", {
+  const { data } = await axios.post(BASE_URL, {
     userId,
     linkName,
     linkUrl,
@@ -39,7 +40,7 @@ export const patchLinkMemo = async (
   categoryId: number,
   memoId: number
 ) => {
-  const { data } = await axios.patch(`/linkMemos/${memoId}`, {
+  const { data } = await axios.patch(`${BASE_URL}/${memoId}`, {
     linkName,
     linkUrl,
     content,
@@ -49,18 +50,18 @@ export const patchLinkMemo = async (
 };
 
 export const deleteLinkMemo = async (memoId: number) => {
-  const { data } = await axios.delete(`/linkMemos/${memoId}`);
+  const { data } = await axios.delete(`${BASE_URL}/${memoId}`);
   return data;
 };
 
 export const getFavoriteLinkMemos = async () => {
   const userId = getUserId();
-  const { data } = await axios.get(`/linkMemos/like?userId=${userId}`);
+  const { data } = await axios.get(`${BASE_URL}/like?userId=${userId}`);
   return data;
 };
 
 export const putLinkMemoLike = async (value: boolean, memoId: number) => {
-  const { data } = await axios.put("/linkMemos/like", {
+  const { data } = await axios.put(`${BASE_URL}/like`, {
     memoId,
     value,
   });
