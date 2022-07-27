@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setWarningText } from "../../../modules/login";
+import { setWarningText } from "../../../modules/edit";
 import { LinkMemoState } from "../../../types/linkMemo";
 
 type ValidateState = Pick<LinkMemoState, "linkName" | "linkUrl">;
