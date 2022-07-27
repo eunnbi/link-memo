@@ -3,20 +3,15 @@ import {
   ModalBox,
   ModalContent,
 } from "../../common/Modals/Modal.styles";
-import {
-  CloseButton,
-  IconBox,
-  Circle,
-  Clipboard,
-} from "./styles/ShareAlert.styles";
+import { CloseButton, IconBox, Circle, Clipboard } from "./ShareModal.styles";
 import { MdClose } from "react-icons/md";
 import { FiMail } from "react-icons/fi";
 import facebookIcon from "../../../assets/images/facebook-icon.png";
 import twitterIcon from "../../../assets/images/twitter-icon.png";
 import kakaoIcon from "../../../assets/images/kakao-icon.png";
 import { LinkMemoShare } from "../../../types/linkMemo";
-import { useShare } from "./hooks/useShare";
-import { useCopyUrl } from "./hooks/useCopyUrl";
+import { useShare } from "./useShare";
+import { useCopyUrl } from "./useCopyUrl";
 
 interface ShareModalProps {
   linkMemo: LinkMemoShare;

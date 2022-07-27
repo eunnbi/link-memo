@@ -1,6 +1,6 @@
-import { LinkMemoShare } from "../../../../types/linkMemo";
-import { getFavicon } from "../../../../utils/linkMemo";
-import { shareLink } from "../../../../constants/shareLink";
+import { LinkMemoShare } from "../../../types/linkMemo";
+import { getFavicon } from "../../../utils/linkMemo";
+import { shareLink } from "../../../constants/shareLink";
 
 export const useShare = () => {
   const shareToFacebook = (linkUrl: string) => {
