@@ -1,7 +1,7 @@
 import { IoMdShare } from "react-icons/io";
 import { useModal } from "../../../hooks/useModal";
 import { LinkMemoShare } from "../../../types/linkMemo";
-import ShareModal from "./ShareModal";
+import ShareModal from "../ShareModal";
 
 interface ShareButtonProps {
   linkMemo: LinkMemoShare;
