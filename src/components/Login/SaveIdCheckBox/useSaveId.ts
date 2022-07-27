@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useLoginState } from "./useLoginState";
-import { useChangeInput } from "./useChangeInput";
+import { useLoginState } from "../hooks/useLoginState";
+import { useChangeInput } from "../hooks/useChangeInput";
 import { useDispatch } from "react-redux";
 import { setSaveId, toggleSaveId } from "../../../modules/login";
 

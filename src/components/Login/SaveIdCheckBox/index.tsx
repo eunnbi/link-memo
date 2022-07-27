@@ -1,5 +1,5 @@
-import CheckBox from "../common/CheckBox";
-import { useSaveId } from "./hooks/useSaveId";
+import CheckBox from "../../common/CheckBox";
+import { useSaveId } from "./useSaveId";
 
 const SaveIdCheckBox = () => {
   const { saveId, onToggle } = useSaveId();
