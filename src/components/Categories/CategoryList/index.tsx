@@ -1,5 +1,5 @@
-import { useFetchCategories } from "../../hooks/useFetchCategories";
-import CategoryItem from "./CategoryItem";
+import { useFetchCategories } from "../../../hooks/useFetchCategories";
+import CategoryItem from "../CategoryItem";
 import styled from "styled-components";
 
 const CategoryList = () => {
