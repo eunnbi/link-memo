@@ -30,4 +30,5 @@ const Text = styled.p`
   justify-content: center;
   align-items: center;
   opacity: 0.6;
+  margin-top: 3rem;
 `;
