@@ -1,5 +1,5 @@
 import Modal from "../../common/Modals/Modal";
-import { useDeleteLinkMemo } from "./hooks/useDeleteLinkMemo";
+import { useDeleteLinkMemo } from "./useDeleteLinkMemo";
 
 interface DeleteModalProps {
   memoId: number;
