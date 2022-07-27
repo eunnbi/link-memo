@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useForm } from "../../hooks/useForm";
-import { Category } from "../../types/category";
-import Modal from "../common/Modals/Modal";
-import { usePatchCategory } from "./hooks/usePatchCategory";
+import { useForm } from "../../../hooks/useForm";
+import { Category } from "../../../types/category";
+import Modal from "../../common/Modals/Modal";
+import { usePatchCategory } from "./usePatchCategory";
 
 interface EditModalProps {
   category: Category;
