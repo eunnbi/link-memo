@@ -1,13 +1,13 @@
 import React from "react";
-import FormInput from "../common/FormInput";
-import SaveIdCheckBox from "./SaveIdCheckBox";
-import { Button, LinkButton } from "../common/styles/Button.styles";
+import FormInput from "../../common/FormInput";
+import SaveIdCheckBox from "../SaveIdCheckBox";
+import { Button, LinkButton } from "../../common/styles/Button.styles";
 import { Form, ButtonBox, Text } from "./LoginForm.styles";
-import { usePostLogin } from "./hooks/usePostLogin";
-import { useLoginState } from "./hooks/useLoginState";
-import { useChangeInput } from "./hooks/useChangeInput";
-import { useValidation } from "./hooks/useValidation";
-import { useInitialize } from "./hooks/useInitialize";
+import { usePostLogin } from "./usePostLogin";
+import { useLoginState } from "../hooks/useLoginState";
+import { useChangeInput } from "../hooks/useChangeInput";
+import { useValidation } from "./useValidation";
+import { useInitialize } from "./useInitialize";
 
 const LoginForm = () => {
   const { id, password, warningText } = useLoginState();
