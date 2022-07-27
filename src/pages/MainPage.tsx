@@ -1,5 +1,5 @@
 import CategoriesSection from "../components/Categories/CategoriesSection";
-import FavoritesSection from "../components/LinkMemo/Favorites/FavoritesSection";
+import FavoritesSection from "../components/LinkMemo/FavoritesSection";
 import Logout from "../components/Logout";
 import styled from "styled-components";
 import ThemeButton from "../components/ThemeButton";
