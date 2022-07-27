@@ -10,7 +10,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  flex-grow: 1;
+  width: 100%;
   border-bottom: ${({ theme }) => `1px solid ${theme.color.borderColor}`};
   padding: 0.5rem 0.8rem;
   font-size: 1.2rem;
