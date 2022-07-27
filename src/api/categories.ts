@@ -12,7 +12,7 @@ export const getCategories = async () => {
 
 export const postCategory = async (categoryName: string) => {
   const userId = getUserId();
-  const { data } = await axios.post(BASE_URL, {
+  const { data } = await axios.post(`${BASE_URL}/add`, {
     userId,
     categoryName,
   });
