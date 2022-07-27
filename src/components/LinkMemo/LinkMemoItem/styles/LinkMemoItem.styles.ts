@@ -29,7 +29,7 @@ export const Heading = styled.div`
     }
   }
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-left: 0.7rem;
     font-weight: bold;
   }
