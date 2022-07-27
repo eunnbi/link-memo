@@ -1,6 +1,6 @@
-import { useModal } from "../../hooks/useModal";
-import PlusButton from "../common/PlusButton";
-import AddModal from "./AddModal";
+import { useModal } from "../../../hooks/useModal";
+import PlusButton from "../../common/PlusButton";
+import AddModal from "../AddModal";
 
 const CategoryAddButton = () => {
   const { openModal } = useModal();
