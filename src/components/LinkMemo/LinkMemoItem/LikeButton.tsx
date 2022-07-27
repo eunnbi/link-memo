@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { BsSuitHeartFill, BsSuitHeart } from "react-icons/bs";
 import styled from "styled-components";
 import { useToggle } from "../../../hooks/useToggle";
@@ -25,6 +26,7 @@ export default LikeButton;
 const Button = styled.button`
   display: flex;
   background-color: transparent;
+  padding: 0 0.2rem;
   svg {
     color: #d84545;
   }
