@@ -1,13 +1,13 @@
-import FormInput from "../common/FormInput";
-import { Button } from "../common/styles/Button.styles";
+import FormInput from "../../common/FormInput";
+import { Button } from "../../common/styles/Button.styles";
 import { Form, FormRow, Text } from "./RegisterForm.styles";
-import { usePostRegister } from "./hooks/usePostRegister";
-import { useCheckPasswd } from "./hooks/useCheckPasswd";
-import { useValidation } from "./hooks/useValidation";
-import { useRegisterState } from "./hooks/useRegisterState";
-import { useChangeInput } from "./hooks/useChangeInput";
-import { useInitialize } from "./hooks/useInitialize";
-import DuplicateCheckButton from "./DuplicateCheckButton";
+import { usePostRegister } from "./usePostRegister";
+import { useCheckPasswd } from "./useCheckPasswd";
+import { useValidation } from "./useValidation";
+import { useRegisterState } from "../hooks/useRegisterState";
+import { useChangeInput } from "./useChangeInput";
+import { useInitialize } from "./useInitialize";
+import DuplicateCheckButton from "../DuplicateCheckButton";
 
 const RegisterForm = () => {
   const {
@@ -45,7 +45,7 @@ const RegisterForm = () => {
             password={false}
             onChange={onChange}
           />
-          <DuplicateCheckButton id={id} />
+          <DuplicateCheckButton />
         </div>
         {guideText.where === "id" && (
           <Text warning={guideText.isWarning}>{guideText.text}</Text>

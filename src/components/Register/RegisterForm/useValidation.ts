@@ -1,5 +1,5 @@
 import { RegisterState } from "../../../types/auth";
-import { useChangeGuideText } from "./useChangeGuideText";
+import { useChangeGuideText } from "../hooks/useChangeGuideText";
 
 type ValidateState = Pick<
   RegisterState,

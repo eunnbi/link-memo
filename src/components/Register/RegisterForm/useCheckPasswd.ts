@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useChangeGuideText } from "./useChangeGuideText";
+import { useChangeGuideText } from "../hooks/useChangeGuideText";
 
 export const useCheckPasswd = (password: string, checkPasswd: string) => {
   const changeGuideText = useChangeGuideText();
