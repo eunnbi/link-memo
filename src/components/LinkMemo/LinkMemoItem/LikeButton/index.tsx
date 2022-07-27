@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import { BsSuitHeartFill, BsSuitHeart } from "react-icons/bs";
 import styled from "styled-components";
-import { useToggle } from "../../../hooks/useToggle";
-import { useDebouncePostLike } from "./hooks/useDebouncePostLike";
+import { useToggle } from "../../../../hooks/useToggle";
+import { useDebouncePostLike } from "./useDebouncePostLike";
 
 interface LikeButtonProps {
   initialLike: boolean;
