@@ -1,2 +1,2 @@
 export const shareLinkParam = "linkUrl" as const;
-export const shareLink = `http://localhost:3000/share?${shareLinkParam}=`;
+export const shareLink = `https://link-memo.netlify.app/share?${shareLinkParam}=`;
