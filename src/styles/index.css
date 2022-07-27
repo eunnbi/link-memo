@@ -42,7 +42,7 @@ li {
 
 main {
   width: 80vw;
-  margin: 0 auto 8rem;
+  margin: 0 auto 3rem;
   max-width: 600px;
   display: flex;
   flex-direction: column;
@@ -54,7 +54,7 @@ main h1 {
 }
 
 section {
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 
 img {
