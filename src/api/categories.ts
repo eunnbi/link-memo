@@ -1,10 +1,12 @@
 import axios from "axios";
 import { getUserId } from "../utils/auth";
 
+const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
 export const getCategories = async () => {
   const userId = getUserId();
   const { data } = await axios.get(
-    `https://dsdm1cnijd.execute-api.ap-northeast-2.amazonaws.com/dev/categories?userId=${userId}`
+    `${BACKEND_BASE_URL}/categories?userId=${userId}`
   );
   return data;
 };

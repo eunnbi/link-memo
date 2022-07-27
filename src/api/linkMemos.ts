@@ -1,12 +1,14 @@
 import axios from "axios";
 import { getUserId } from "../utils/auth";
 
+const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
 export const getLinkMemos = async (
   categoryId: number,
   searchQuery: string | undefined
 ) => {
   const userId = getUserId();
-  const url = `https://dsdm1cnijd.execute-api.ap-northeast-2.amazonaws.com/dev/linkMemos?userId=${userId}&categoryId=${categoryId}${
+  const url = `${BACKEND_BASE_URL}/linkMemos?userId=${userId}&categoryId=${categoryId}${
     searchQuery !== "" ? `&searchQuery=${searchQuery}` : ""
   }`;
   const { data } = await axios.get(url);
