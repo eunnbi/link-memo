@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useModal } from "../../../hooks/useModal";
 import { LinkMemoResponse } from "../../../types/linkMemo";
 import DropdownMenu from "../../common/DropdownMenu";
-import DeleteModal from "./DeleteModal";
+import DeleteModal from "../DeleteModal";
 
 interface LinkMemoMenuProps {
   show: boolean;
