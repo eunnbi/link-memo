@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import CategoryList from "../CategoryList";
-import CategoryAddButton from "./CategoryAddButton";
+import CategoryAddButton from "../CategoryAddButton";
 
 const CategoriesSection = () => {
   return (
