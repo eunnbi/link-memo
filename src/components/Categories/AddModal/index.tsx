@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { usePostCategory } from "./hooks/usePostCategory";
-import Modal from "../common/Modals/Modal";
-import { useForm } from "../../hooks/useForm";
+import { usePostCategory } from "./usePostCategory";
+import Modal from "../../common/Modals/Modal";
+import { useForm } from "../../../hooks/useForm";
 
 interface AddModalProps {
   onClose: () => void;
