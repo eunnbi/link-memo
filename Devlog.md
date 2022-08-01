@@ -285,14 +285,14 @@ export default LoginForm;
    - [useForm](https://github.com/eunnbi/link-memo/blob/main/src/hooks/useForm.ts) 등
 2. 만약 하나의 컴포넌트에서만 사용되는 로직이라면 경우에 따라 커스텀 훅을 만들어 분리하거나 하지 않았다.
    - `api` 호출 로직은 커스텀 훅으로 만들어 분리 (`react query` + `custom hook`)
-     - [DeleteModal](https://github.com/eunnbi/link-memo/blob/main/src/components/Categories/DeleteModal/index.tsx)에서 사용하는 [useDeleteCategory](https://github.com/eunnbi/link-memo/blob/main/src/components/Categories/DeleteModal/useDeleteCategory.ts)
+     - [DeleteModal](https://github.com/eunnbi/link-memo/blob/main/src/components/Categories/DeleteModal/index.tsx)에서 사용하는 [useDeleteCategory](https://github.com/eunnbi/link-memo/blob/main/src/components/Categories/DeleteModal/useDeleteCategory.ts) 등
    - `redux`를 사용하는 컴포넌트라면 여러 컴포넌트에서 동일한 액션이 `dispatch` 되어야 하는 경우가 존재하여 로직을 커스텀 훅으로 만들어 분리 및 재사용
    - `common` 컴포넌트를 이용하여 렌더링하는 경우 이미 `view`가 관심사에서 분리된 상황이므로 로직을 따로 분리하지 않음.
      - [CategoryMenu](https://github.com/eunnbi/link-memo/blob/main/src/components/Categories/CategoryItem/CategoryMenu.tsx)
      - [LinkMemoMenu](https://github.com/eunnbi/link-memo/blob/main/src/components/LinkMemo/LinkMemoItem/LinkMemoMenu.tsx)
      - [CategoryAddButton](https://github.com/eunnbi/link-memo/blob/main/src/components/Categories/CategoryAddButton/index.tsx)
      - [AddModal](https://github.com/eunnbi/link-memo/blob/main/src/components/Categories/AddModal/index.tsx)
-     - [EditModal](https://github.com/eunnbi/link-memo/blob/main/src/components/Categories/EditModal/index.tsx)
+     - [EditModal](https://github.com/eunnbi/link-memo/blob/main/src/components/Categories/EditModal/index.tsx) 등
 
 <br/>
 
